@@ -9,10 +9,6 @@ const routes: Routes = [
     loadChildren: () => import('./project/project.module').then( m => m.ProjectPageModule)
   },
   {
-    path: 'create-project',
-    loadChildren: () => import('./create-project/create-project.module').then( m => m.CreateProjectPageModule)
-  },
-  {
     path: 'header-footer',
     loadChildren: () => import('./header-footer/header-footer.module').then( m => m.HeaderFooterPageModule)
   },
