@@ -9,13 +9,19 @@ const routes: Routes = [
     loadChildren: () => import('./project/project.module').then( m => m.ProjectPageModule)
   },
   {
-    path: 'header-footer',
-    loadChildren: () => import('./header-footer/header-footer.module').then( m => m.HeaderFooterPageModule)
+    path: 'project-menu',
+    loadChildren: () => import('./project-menu/project-menu.module').then( m => m.ProjectMenuPageModule)
   },
   {
     path: 'project-create',
     loadChildren: () => import('./project-create/project-create.module').then( m => m.ProjectCreatePageModule)
   },
+  {
+    path: 'header-footer',
+    loadChildren: () => import('./header-footer/header-footer.module').then( m => m.HeaderFooterPageModule)
+  },
+
+
 ];
 
 @NgModule({
