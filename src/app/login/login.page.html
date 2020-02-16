@@ -33,33 +33,52 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-title>Startseite</ion-title>
-    </ion-row>
-    <ion-row>
+  <form #loginForm="ngForm" novalidate>
+    <ion-list>
       <ion-item>
-        <ion-text>
-          Lorem ipsum dolor sit amet,
-          consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore
-          et dolore magna aliquyam erat, sed diam
-          voluptua. At vero eos et accusam et justo
-          duo dolores et ea rebum.
-        </ion-text>
+        <ion-label position="stacked" color="primary">Username</ion-label>
+        <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
+                   required>
+        </ion-input>
       </ion-item>
-    </ion-row>
+
+      <ion-text color="danger">
+        <p [hidden]="username.valid || submitted == false" class="ion-padding-start">
+          Username is required
+        </p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked" color="primary">Password</ion-label>
+        <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger">
+        <p [hidden]="password.valid || submitted == false" class="ion-padding-start">
+          Password is required
+        </p>
+      </ion-text>
+    </ion-list>
+
     <ion-row>
       <ion-col>
-        <ion-item>Test</ion-item>
-        <ion-item>Test</ion-item>
-        <ion-item>Test</ion-item>
-        <ion-item>Test</ion-item>
+        <ion-button (click)="onLogin(loginForm)" type="submit" expand="block">Login</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="onSignup()" color="light" expand="block">Signup</ion-button>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </form>
 </ion-content>
+
 <ion-footer>
   <ion-toolbar>
     <ion-grid>

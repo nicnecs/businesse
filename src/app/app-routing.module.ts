@@ -20,6 +20,18 @@ const routes: Routes = [
     path: 'header-footer',
     loadChildren: () => import('./header-footer/header-footer.module').then( m => m.HeaderFooterPageModule)
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+  },
+  {
+    path: 'account',
+    loadChildren: () => import('./account/account.module').then( m => m.AccountPageModule)
+  },
 
 
 ];
