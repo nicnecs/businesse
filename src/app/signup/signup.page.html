@@ -33,47 +33,44 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registrieren</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-title>Startseite</ion-title>
-    </ion-row>
-    <ion-row>
-      categorys in small sliders
-    </ion-row>
-    <ion-row>
-      <ion-col style="width: 60%;">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>shortfilter</ion-card-subtitle>
-            <ion-card-title>Awesome Title</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-grid fixed>
-              <ion-row>
-                <ion-card>
-                  <ion-card-content>
-                    Row one
-                  </ion-card-content>
-                </ion-card>
-              </ion-row>
-              <ion-row>
-                <ion-card>
-                  <ion-card-content>
-                    Row two
-                  </ion-card-content>
-                </ion-card>
-              </ion-row>
-            </ion-grid>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col>
-        other previews
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <form #signupForm="ngForm" novalidate>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label position="stacked" color="primary">Username</ion-label>
+        <ion-input [(ngModel)]="signup.username" name="username" type="text" #username="ngModel" required>
+        </ion-input>
+      </ion-item>
+      <ion-text color="danger">
+        <p [hidden]="username.valid || submitted == false" class="ion-padding-start">
+          Username is required
+        </p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked" color="primary">Password</ion-label>
+        <ion-input [(ngModel)]="signup.password" name="password" type="password" #password="ngModel" required>
+        </ion-input>
+      </ion-item>
+      <ion-text color="danger">
+        <p [hidden]="password.valid || submitted == false" class="ion-padding-start">
+          Password is required
+        </p>
+      </ion-text>
+    </ion-list>
+
+    <div class="ion-padding">
+      <ion-button (click)="onSignup(signupForm)" type="submit" expand="block">Create</ion-button>
+    </div>
+  </form>
 </ion-content>
+
 <ion-footer>
   <ion-toolbar>
     <ion-grid>
