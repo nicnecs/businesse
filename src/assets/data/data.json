@@ -1,0 +1,25 @@
+{
+  "projects": [
+    {
+      "projectTitles": ["Burt Bear", "Charlie Cheetah"]
+    }
+  ],
+  "projectDetails": [
+    {
+      "title": "Burt Bear",
+      "about": "Burt is a Bear.",
+      "location": "Everywhere",
+      "email": "this@example.com",
+      "phone": "+1-541-754-3010",
+      "id": "1"
+    },
+    {
+      "title": "Charlie Cheetah",
+      "about": "Charlie is a Cheetah.",
+      "location": "Everywhere",
+      "email": "this@example.com",
+      "phone": "+1-541-754-3010",
+      "id": "2"
+    }
+  ]
+}
