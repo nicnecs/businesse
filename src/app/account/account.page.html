@@ -33,33 +33,22 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-header>
+  <ion-toolbar>
+    <ion-title>account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-title>Startseite</ion-title>
-    </ion-row>
-    <ion-row>
-      <ion-item>
-        <ion-text>
-          Lorem ipsum dolor sit amet,
-          consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore
-          et dolore magna aliquyam erat, sed diam
-          voluptua. At vero eos et accusam et justo
-          duo dolores et ea rebum.
-        </ion-text>
-      </ion-item>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>Test</ion-item>
-        <ion-item>Test</ion-item>
-        <ion-item>Test</ion-item>
-        <ion-item>Test</ion-item>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <div *ngIf="username" class="ion-padding-top ion-text-center">
+    <h2>{{username}}</h2>
+
+    <ion-list inset>
+      <ion-item (click)="logout()">Logout</ion-item>
+    </ion-list>
+  </div>
 </ion-content>
+
 <ion-footer>
   <ion-toolbar>
     <ion-grid>
