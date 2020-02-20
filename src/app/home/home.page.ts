@@ -34,6 +34,27 @@ export class HomePage {
       "img" : "img",
       "frist" : "17.02.2020",
       "project-start" : "20.02.2020"
+    },
+    {
+      "id" : 5,
+      "name" : "Ein cooles Projekt",
+      "category" : "Programming",
+      "company" : "TeaSausage24"
+    },
+    {
+      "id" : 29,
+      "name" : "Super cooles Projekt",
+      "category" : "Handwerk",
+      "company" : "Microsoft"
+    },
+    {
+      "id" : 19000,
+      "name" : "Super Duper cooles Projekt",
+      "category" : "fff",
+      "company" : "Apppple",
+      "img" : "img",
+      "frist" : "17.02.2020",
+      "project-start" : "20.02.2020"
     }
   ]
 

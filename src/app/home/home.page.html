@@ -32,56 +32,36 @@
 
 
 <ion-content>
-  <ion-grid style="left: 30%; height: 100%;">
+  <ion-grid style="left: 30%; height: 100%; background-color: transparent;">
     <ion-row>
       categorys in small sliders
     </ion-row>
     <ion-row>
-      <ion-col style="width: 70%;">
-        <ion-card style="border: 0;">
-          <ion-card-header>
-            <ion-card-subtitle>shortfilter</ion-card-subtitle>
-            <ion-card-title></ion-card-title>
-          </ion-card-header>
-          <ion-card-content style="height: fit-content;">
-            <ion-grid fixed>
+      <ion-col style="width: 80%;">
+        
+            <ion-grid fixed >
               
               <ion-label></ion-label>
               <ion-row *ngFor="let project of json">
-                <ion-card style="width: 90%; height: fit-content;">
-                  <ion-card-content style="height: 90px;">
+                <ion-card style="width: 90%; height: fit-content; background-color: white;">
+                  <ion-card-content style="height: 110px;">
                     
-                    <ion-label style="position: absolute; top: 0%; left: 0%; font-size: large; font-weight: 800;">{{project.name}}</ion-label>
-                    <ion-label style="position: absolute; top: 0; right: 0;">{{project.category}}</ion-label>
-                    <ion-label style="position: absolute; bottom: 0%; left: 0%;">{{project.company}}</ion-label>
-                    <ion-button (click)="toProject(project.id)" style="position: absolute; right: 0%; bottom: 0%; width: 10%; background-color: darkblue;" expand="block">
-                      block
-                    </ion-button>
+                    <ion-label style="position: absolute; top: 2%; left: 2%; font-size: large; font-weight: 800;">{{project.name}}</ion-label>
+                    <ion-label style="position: absolute; top: 2%; right: 2%;">{{project.category}}</ion-label>
+                    <ion-label style="position: absolute; bottom: 2%; left: 2%;">{{project.company}}</ion-label>
+                    <ion-item button (click)="toProject(project.id)" style="position: absolute; right: 0.5%; bottom: 2%; width: fit-content; height: fit-content; font-size: small; font-weight: 800; background-color: lightblue; color: white;">
+                      <ion-label>Zum Projekt</ion-label>
+                    </ion-item>
                   </ion-card-content>
                 </ion-card>
               </ion-row>
             
             </ion-grid>
-          </ion-card-content>
-        </ion-card>
       </ion-col>
       <ion-col>
         {{id}}
       </ion-col>
     </ion-row>
   </ion-grid>
+
 </ion-content>
-
-
-
-<ion-footer style="max-height: 10%;">
-  <ion-toolbar>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
-</ion-footer>
