@@ -1,5 +1,57 @@
-ion-content{
+ion-content {
 
-    --ion-background-color:lightgray;
+    --ion-background-color: rgb(236, 236, 236);
     overflow: hidden;
+}
+
+ion-header {
+    --ion-background-color: #5BB32E;
+}
+
+ion-searchbar {
+    .searchbar-input-container {
+        background-color: white;
+    }
+}
+
+.container{
+    position: relative;
+    display: flex;
+    height: inherit;
+}
+
+
+#previewitem {
+    position: absolute;
+    width: 80%;
+    top: 0;
+    left: 0;
+}
+
+#sideitem{
+    position: absolute;
+    width: 20%;
+    top: 0;
+    right: 0;
+    background: hotpink;
+}
+
+@media only screen and (max-width: 1024px) {
+
+    #previewitem{
+        width: 100%;
+    }
+
+    #sideitem{
+        width: 100%;
+        top: unset;
+        right: unset;
+        left: 0;
+        bottom: 0;
+    }
+
+}
+
+#previewitembutton[type=button] {
+    background-color: #5BB32E;
 }
