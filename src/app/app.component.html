@@ -1,3 +1,22 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane>
+    <ion-menu>
+      <ion-header>
+        <ion-header>
+          <ion-item class="header-item logodiv">
+            <ion-img class="logo" src="../assets/BusinessE.png"></ion-img>
+          </ion-item>
+        </ion-header>
+        <ion-content class="BusinesseMenu">
+          <ion-item>
+            <a href="./home">Startseite</a>
+          </ion-item>
+          <ion-item>
+            <a href="./project">Projektübersicht</a>
+          </ion-item>
+        </ion-content>
+      </ion-header>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>

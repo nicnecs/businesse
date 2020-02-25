@@ -1,11 +1,23 @@
 ion-header {
-  --ion-background-color: #5BB32E;
+  --ion-background-color: #77d049;
 }
 
 ion-searchbar {
-  --ion-background-color: #5BB32E;
+  --ion-background-color: #77d049;
 }
 
 .header-item {
   display: flex;
+}
+
+.logodiv {
+  margin-left: -5%;
+}
+
+.logo{
+  transform: scale(0.6,0.7);
+  float: left !important;
+  margin-left: 0%;
+  outline: black;
+  outline-style: solid;
 }
