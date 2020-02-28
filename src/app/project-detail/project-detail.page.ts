@@ -54,18 +54,18 @@ export class ProjectDetailPage implements OnInit {
       "partners" : [
         {
           "partnerId" : 1,
-          "firstname" : "firstname",
-          "lastname" : "lastname"
+          "firstname" : "John",
+          "lastname" : "meyer"
         },
         {
           "partnerId" : 2,
-          "firstname" : "firstname",
-          "lastname" : "lastname"
+          "firstname" : "Ralph",
+          "lastname" : "Fischer "
         },
         {
           "partnerId" : 3,
-          "firstname" : "firstname",
-          "lastname" : "lastname"
+          "firstname" : "weaver",
+          "lastname" : "Weber"
         }
       ],
       "deadline" : "17.02.2020",
@@ -87,7 +87,8 @@ export class ProjectDetailPage implements OnInit {
       "partners" : [
         {
           "partnerId" : 1,
-          "partner" : "Last, first name",
+          "firstname" : "John",
+          "lastname" : "meyer"
         }
       ],
       "reward": 2000,

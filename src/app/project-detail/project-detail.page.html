@@ -7,7 +7,7 @@
 <ion-content>
   <ion-grid fixed>
     <ion-row >
-      <ion-col size="12">
+      <ion-col size="9">
         <ion-card class="custom-card">
           <img src="{{ data.picture }}" />
           <ion-progress-bar *ngIf="data.state == 'green'" value="1" color="success"></ion-progress-bar>
@@ -28,28 +28,32 @@
           </ion-card-header>
           <ion-card-content fullscreen>
             {{data.description}}
-            <ion-row *ngIf="data.state == 'orange'; else partners" >
-              <ion-col size="3" class="ion-no-padding">
-                <ion-card-title class="ion-margin-top">Teilnehmern auswhal</ion-card-title>
-                <ion-list>
-                  <div *ngFor="let applicant of applicants">
-                    <ion-checkbox [(ngModel)]="applicant.checked" (click)="selectApplicat(applicant)" class="ion-margin-top" slot="end" ></ion-checkbox>
-                    <ion-label class="ion-padding"><a [routerLink]="['/user', applicant.id]">{{applicant.firstname + ' '+  applicant.lastname}}</a></ion-label>
-                  </div>
-                </ion-list>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col size="3">
-                  <ng-template #partners>
-                    <ion-label class="ion-padding" *ngFor="let partner of data.partners">
-                      <a [routerLink]="['/user', partner.partnerId]">{{partner.partner}}</a>
-                    </ion-label>
-                  </ng-template>
-              </ion-col>
-            </ion-row>
           </ion-card-content>
         </ion-card>
+      </ion-col>
+      <ion-col size="3">
+          <ion-card class="custom-card">
+            <ion-card-header color="success">
+                <ion-card-title class="ion-margin-top">Teilnehmern auswhal</ion-card-title>
+            </ion-card-header>
+              <ion-card-content fullscreen>
+                  <div *ngIf="data.state == 'orange'; else partners" >
+                      <ion-card-subtitle class="ion-margin-top">Teilnehmern auswhal: </ion-card-subtitle>
+                    <ion-list>
+                      <div *ngFor="let applicant of applicants">
+                        <ion-checkbox [(ngModel)]="applicant.checked" (click)="selectApplicat(applicant)" class="ion-margin-top" slot="end" ></ion-checkbox>
+                        <ion-label class="ion-padding"><a [routerLink]="['/user', applicant.id]">{{applicant.firstname + ' '+  applicant.lastname}}</a></ion-label>
+                      </div>
+                    </ion-list>
+                  </div>
+                  <div>
+                    <ng-template #partners>
+                      <ion-card-subtitle class="ion-margin-top">Alle Teilnehmern um dieses Projekt </ion-card-subtitle>
+                      <a *ngFor="let partner of data.partners" [routerLink]="['/user', partner.partnerId]">{{partner.firstname + ' '+  partner.lastname}}</a>
+                    </ng-template>
+                  </div>
+                </ion-card-content>
+          </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
