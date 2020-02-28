@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-project-detail',
@@ -15,17 +16,29 @@ export class ProjectDetailPage implements OnInit {
     });
   }
 
-  getData(id) {
-    for (let project of this.Json) {
-      if(project.id == id) {
-        this.data = project;
-        console.log(this.data)
-        break;
-      }
-    }
-  }
-
+  checkBoxValue = ''
   data = {}
+
+  applicants = [
+    {
+      "id" : 1,
+      "firstname" : "firstname",
+      "lastname" : "lastname",
+      "checked": false
+    },
+    {
+      "id" : 2,
+      "firstname" : "firstname",
+      "lastname" : "lastname",
+      "checked": false
+    },
+    {
+      "id" : 3,
+      "firstname" : "firstname",
+      "lastname" : "lastname",
+      "checked": false
+    }
+  ]
 
   Json = [
     {
@@ -41,15 +54,18 @@ export class ProjectDetailPage implements OnInit {
       "partners" : [
         {
           "partnerId" : 1,
-          "partner" : "Last, first name",
+          "firstname" : "firstname",
+          "lastname" : "lastname"
         },
         {
           "partnerId" : 2,
-          "partner" : "Last, first name",
+          "firstname" : "firstname",
+          "lastname" : "lastname"
         },
         {
           "partnerId" : 3,
-          "partner" : "Last, first name",
+          "firstname" : "firstname",
+          "lastname" : "lastname"
         }
       ],
       "deadline" : "17.02.2020",
@@ -98,6 +114,26 @@ export class ProjectDetailPage implements OnInit {
 
   ngOnInit() {
     
+  }
+
+  getData(id) {
+    for (let project of this.Json) {
+      if(project.id == id) {
+        this.data = project;
+        break;
+      }
+    }
+  }
+
+  selectApplicat(applicant) {
+    if (applicant.checked == false) {
+      this.data["partners"].push(applicant);
+    } else {
+      let newArray = this.data["partners"].filter(function(el) {
+        return el.id !== applicant.id;
+     });
+     this.data["partners"] = newArray;
+    }
   }
 
 }

@@ -32,9 +32,9 @@
               <ion-col size="3" class="ion-no-padding">
                 <ion-card-title class="ion-margin-top">Teilnehmern auswhal</ion-card-title>
                 <ion-list>
-                  <div *ngFor="let partner of data.partners">
-                    <ion-checkbox class="ion-margin-top" value={{partner.id}} slot="end"></ion-checkbox>
-                    <ion-label class="ion-padding"><a [routerLink]="['/user', partner.partnerId]">{{partner.partner}}</a></ion-label>
+                  <div *ngFor="let applicant of applicants">
+                    <ion-checkbox [(ngModel)]="applicant.checked" (click)="selectApplicat(applicant)" class="ion-margin-top" slot="end" ></ion-checkbox>
+                    <ion-label class="ion-padding"><a [routerLink]="['/user', applicant.id]">{{applicant.firstname + ' '+  applicant.lastname}}</a></ion-label>
                   </div>
                 </ion-list>
               </ion-col>
@@ -43,9 +43,6 @@
               <ion-col size="3">
                   <ng-template #partners>
                     <ion-label class="ion-padding" *ngFor="let partner of data.partners">
-                      <p>
-                        
-                      </p>
                       <a [routerLink]="['/user', partner.partnerId]">{{partner.partner}}</a>
                     </ion-label>
                   </ng-template>
