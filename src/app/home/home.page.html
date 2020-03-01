@@ -1,33 +1,24 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-button href="#" color="dark">
-            <ion-icon name="globe"></ion-icon>
-          </ion-button>
-          <ion-button href="/project-menu" color="dark">
-            <ion-icon name="book"></ion-icon>
-          </ion-button>
-        </ion-col>
-        
-        <ion-col>
-          <ion-button href="#" color="dark">
-            <ion-icon name="log-in"></ion-icon>
-          </ion-button>
-          <ion-button href="#" color="dark">
-            <ion-icon name="person"></ion-icon>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-searchbar style="background-color: white; color: white;"></ion-searchbar>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
+  <ion-item class="header-item">
+    <ion-button href="home" color="dark">
+      <ion-icon name="globe"></ion-icon>
+    </ion-button>
+
+    <ion-button href="/project-menu" color="dark">
+      <ion-icon name="book"></ion-icon>
+    </ion-button>
+
+    <ion-searchbar class="searchbar-input-container" mode="ios" style="color: white;"></ion-searchbar>
+    <a href="login.page.html">Login</a>
+
+    <ion-button href="#" color="dark">
+      <ion-icon name="person"></ion-icon>
+    </ion-button>
+  </ion-item>
 </ion-header>
+
+
+
 
 
 
@@ -44,11 +35,15 @@
     
               <ion-label></ion-label>
               <ion-row *ngFor="let project of json">
-                <ion-card style="width: 100%; height: fit-content; background-color: rgb(241, 177, 75);">
+                <ion-card style="position: relative; display: block; width: 100%; height: 110px; background-color: rgb(241, 177, 75);">
                   <ion-card-content style="height: 110px;">
+                    <ion-item class="previewimage">
+                      <ion-img *ngIf="project.img" [src]="project.img"></ion-img>
+                    </ion-item>
                     
                     <ion-label style="position: absolute; top: 2%; left: 2%; font-size: large; font-weight: 800;">{{project.name}}</ion-label>
                     <ion-label style="position: absolute; top: 2%; right: 2%;">{{project.category}}</ion-label>
+                    
                     <ion-label style="position: absolute; bottom: 2%; left: 2%;">{{project.company}}</ion-label>
                     <ion-item id="previewitembutton" button (click)="toProject(project.id)" style="position: absolute; right: 0.5%; bottom: 2%; width: fit-content; height: fit-content; font-size: small; font-weight: 800; background-color: lightblue; color: white;">
                       <ion-label>Zum Projekt</ion-label>

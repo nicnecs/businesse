@@ -36,9 +36,16 @@ ion-searchbar {
     background: hotpink;
 }
 
+.previewimage{
+
+    position: absolute;
+    text-align: start;
+}
+
 @media only screen and (max-width: 1024px) {
 
     #previewitem{
+        background-color: rgb(241, 177, 75);
         width: 100%;
     }
 
