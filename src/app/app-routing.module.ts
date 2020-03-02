@@ -33,6 +33,10 @@ const routes: Routes = [
     path: 'account',
     loadChildren: () => import('./account/account.module').then( m => m.AccountPageModule)
   },
+  {
+    path: 'private-overview',
+    loadChildren: () => import('./private-overview/private-overview.module').then( m => m.PrivateOverviewPageModule)
+  },
 ];
 
 @NgModule({

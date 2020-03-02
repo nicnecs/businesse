@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-item class="header-item">
+    <ion-button href="/home" color="dark">
+      <ion-icon name="globe"></ion-icon>
+    </ion-button>
+
+    <ion-button href="/project-menu" color="dark">
+      <ion-icon name="book"></ion-icon>
+    </ion-button>
+
+    <ion-searchbar class="searchbar-input-container" mode="ios" style="color: white;"></ion-searchbar>
+    <a href="login.page.html">Login</a>
+
+    <ion-button href="#" color="dark">
+      <ion-icon name="person"></ion-icon>
+    </ion-button>
+
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-item>
+</ion-header>
+
+<ion-content color="success" class="winprojects">
+  <ion-header>
+    <h1>Projektübersicht</h1>
+  </ion-header>
+  <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <p>Aktuelle Projekte</p>
+        <ion-list>
+          <ion-item>
+            <ion-label>Test</ion-label>
+            <ion-button color="dark">
+              <ion-icon name="arrow-forward"></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-label>Test</ion-label>
+            <ion-button color="dark">
+              <ion-icon name="arrow-forward"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col>
+        <p>Pausierte Projekte</p>
+        <ion-list>
+          <ion-item>
+            <ion-label>Test</ion-label>
+            <ion-button color="dark">
+              <ion-icon name="arrow-forward"></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-label>Test</ion-label>
+            <ion-button color="dark">
+              <ion-icon name="arrow-forward"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col>
+        <p>Abgeschlossene Projekte</p>
+        <ion-list>
+          <ion-item>
+            <ion-label>Test</ion-label>
+            <ion-button color="dark">
+              <ion-icon name="arrow-forward"></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-label>Test</ion-label>
+            <ion-button color="dark">
+              <ion-icon name="arrow-forward"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-content>
+
+</ion-content>
+<br>
+<ion-content color="success" class="winprojects">
+  <ion-header>
+    <h1>Abgeschlossene Projekte</h1>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item-sliding>
+        <ion-item>
+          <ion-label>Item</ion-label>
+          <ion-button color="dark" slot="end">
+            <ion-icon name="arrow-forward"></ion-icon>
+            <ion-icon name="star-half"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option (click)="unread(item)">Unread</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-content>
+
+</ion-content>
+
+
+<ion-content>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar >
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button href="#" color="dark">
+            <ion-icon name="help"></ion-icon>
+          </ion-button>
+          <ion-button href="#" color="dark">
+            <ion-icon name="settings"></ion-icon>
+          </ion-button>
+          <ion-button href="#" color="dark">
+            <ion-icon name="wallet"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+

@@ -1,0 +1,35 @@
+ion-header {
+  --ion-background-color: #77d049;
+}
+
+ion-searchbar {
+  --ion-background-color: #77d049;
+}
+
+ion-footer {
+  --ion-background-color: #77d049;
+}
+
+
+.header-item {
+  display: flex;
+}
+
+.winprojects{
+  outline: black;
+  outline-style: solid;
+  outline-width: 2px;
+  transform: scale(0.8,0.8);
+  }
+
+.logodiv {
+  margin-left: -5%;
+}
+
+.logo{
+  transform: scale(0.6,0.7);
+  float: left !important;
+  margin-left: 0%;
+  outline: black;
+  outline-style: solid;
+}
