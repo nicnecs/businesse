@@ -41,8 +41,8 @@ const routes: Routes = [
     loadChildren: () => import('./project-detail/project-detail.module').then( m => m.ProjectDetailPageModule)
   },
   {
-    path: 'my-resent-projects',
-    loadChildren: () => import('./my-resent-projects/my-resent-projects.module').then( m => m.MyResentProjectsPageModule)
+    path: 'my-recent-projects',
+    loadChildren: () => import('./my-recent-projects/my-recent-projects.module').then( m => m.MyRecentProjectsPageModule)
   },
 
 
