@@ -1,15 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-my-recent-projects',
-  templateUrl: './my-recent-projects.page.html',
-  styleUrls: ['./my-recent-projects.page.scss'],
-
+  selector: 'app-tab2',
+  templateUrl: './tab2.page.html',
+  styleUrls: ['./tab2.page.scss'],
 })
-export class MyRecentProjectsPage implements OnInit {
+export class Tab2Page implements OnInit {
 
-  constructor() {
-  }
+  constructor() { }
   data = [
     {
       "id" : 1,
@@ -60,7 +58,6 @@ export class MyRecentProjectsPage implements OnInit {
       "state" : "orange",
     }
   ];
-
   ngOnInit() {
   }
 

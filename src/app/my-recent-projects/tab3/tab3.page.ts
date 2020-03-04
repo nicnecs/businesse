@@ -1,15 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-my-recent-projects',
-  templateUrl: './my-recent-projects.page.html',
-  styleUrls: ['./my-recent-projects.page.scss'],
-
+  selector: 'app-tab3',
+  templateUrl: './tab3.page.html',
+  styleUrls: ['./tab3.page.scss'],
 })
-export class MyRecentProjectsPage implements OnInit {
+export class Tab3Page implements OnInit {
 
-  constructor() {
-  }
+  constructor() { }
   data = [
     {
       "id" : 1,
@@ -63,5 +61,6 @@ export class MyRecentProjectsPage implements OnInit {
 
   ngOnInit() {
   }
+
 
 }

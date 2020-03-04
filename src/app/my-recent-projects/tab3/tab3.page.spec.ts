@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { MyRecentProjectsPage } from './my-recent-projects.page';
+import { Tab3Page } from './tab3.page';
 
-describe('MyRecentProjectsPage', () => {
-  let component: MyRecentProjectsPage;
-  let fixture: ComponentFixture<MyRecentProjectsPage>;
+describe('Tab3Page', () => {
+  let component: Tab3Page;
+  let fixture: ComponentFixture<Tab3Page>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MyRecentProjectsPage ],
+      declarations: [ Tab3Page ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MyRecentProjectsPage);
+    fixture = TestBed.createComponent(Tab3Page);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
@@ -22,5 +22,3 @@ describe('MyRecentProjectsPage', () => {
     expect(component).toBeTruthy();
   });
 });
-
-export class MyRecentProjectsPageSpec{}
