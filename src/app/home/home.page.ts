@@ -56,7 +56,7 @@ export class HomePage {
       "frist" : "17.02.2020",
       "project-start" : "20.02.2020"
     }
-  ]
+  ];
 
   toProject(project_id){
 
