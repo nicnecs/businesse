@@ -11,8 +11,7 @@ export class HomePage {
 
   id = 0;
 
-  json = 
-  
+  json =
   [
     {
       "id" : 5,
