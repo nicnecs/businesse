@@ -33,17 +33,12 @@ const routes: Routes = [
     loadChildren: () => import('./account/account.module').then( m => m.AccountPageModule)
   },
   {
-<<<<<<< HEAD
-    path: 'provider-projects',
-    loadChildren: () => import('./provider-projects/provider-projects.module').then( m => m.ProviderProjectsPageModule)
-=======
     path: 'projects-overview-co',
     loadChildren: () => import('./projects-overview-co/projects-overview-co.module').then( m => m.ProjectsOverviewCoPageModule)
   },
   {
     path: 'project-detail/:id',
     loadChildren: () => import('./project-detail/project-detail.module').then( m => m.ProjectDetailPageModule)
->>>>>>> ea57e86684f3e5dbfcac93e319cedec4b88fa163
   },
 
 

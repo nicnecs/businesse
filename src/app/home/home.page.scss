@@ -11,8 +11,15 @@ ion-header {
 ion-searchbar {
     .searchbar-input-container {
         background-color: white;
+        border-color: transparents;
     }
 }
+
+.searchbar-left-aligned.sc-ion-searchbar-ios-h 
+.searchbar-input.sc-ion-searchbar-ios{
+    background-color: white;
+}
+
 
 .container{
     position: relative;
