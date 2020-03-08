@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { UrlTree } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,15 +9,17 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private navCtrl: NavController) {}
 
-  id = 0;
+  project_id;
+
+  partner_id;
+  provider_id = 1;
 
   json = 
-  
   [
     {
-      "id" : 5,
+      "id" : 1,
       "name" : "Ein cooles Projekt",
       "category" : "Programming",
       "company" : "TeaSausage24",
@@ -24,7 +28,7 @@ export class HomePage {
       "address" : ""
     },
     {
-      "id" : 29,
+      "id" : 2,
       "name" : "Super cooles Projekt",
       "category" : "Handwerk",
       "company" : "Microsoft",
@@ -34,7 +38,7 @@ export class HomePage {
       "entfernung" : "1,5km"
     },
     {
-      "id" : 19000,
+      "id" : 3,
       "name" : "Super Duper cooles Projekt",
       "category" : "fff",
       "company" : "Apppple",
@@ -44,7 +48,7 @@ export class HomePage {
       "address" : ""
     },
     {
-      "id" : 5,
+      "id" : 4,
       "name" : "Ein cooles Projekt",
       "category" : "Programming",
       "company" : "TeaSausage24",
@@ -52,7 +56,7 @@ export class HomePage {
       "project-start" : "20.02.2020"
     },
     {
-      "id" : 29,
+      "id" : 5,
       "name" : "Super cooles Projekt",
       "category" : "Handwerk",
       "company" : "Microsoft",
@@ -60,11 +64,11 @@ export class HomePage {
       "project-start" : "20.02.2020"
     },
     {
-      "id" : 19000,
+      "id" : 6,
       "name" : "Super Duper cooles Projekt",
       "category" : "fff",
       "company" : "Apppple",
-      "img" : "/assets/",
+      "img" : "/assets/preview.png",
       "frist" : "17.02.2020",
       "project-start" : "20.02.2020"
     }
@@ -72,8 +76,16 @@ export class HomePage {
 
   toProject(project_id){
 
-    this.id = project_id;
+    this.project_id = project_id;
 
+    this.navCtrl.navigateForward(
+      [
+        '/project', 
+        {
+          "/" : this.project_id
+        }
+      ]
+      );
   }
 
 }

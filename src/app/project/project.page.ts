@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { NavController, NavParams } from '@ionic/angular';
+
 @Component({
   selector: 'app-project',
   templateUrl: './project.page.html',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectPage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController) { 
+    //this.id = this.navParams.get('data');
+  }
+
+
+
+  id = 700;
 
   ngOnInit() {
   }
+
 
 }

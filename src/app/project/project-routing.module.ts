@@ -5,8 +5,11 @@ import { ProjectPage } from './project.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: ProjectPage
+    path: '/project',
+    component: ProjectPage,
+    children:[
+      
+    ]
   }
 ];
 

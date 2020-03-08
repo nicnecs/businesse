@@ -15,6 +15,7 @@ import { ProjectPage } from './project.page';
     IonicModule,
     ProjectPageRoutingModule
   ],
-  declarations: [ProjectPage]
+  declarations: [ProjectPage],
+  entryComponents:[ProjectPage]
 })
 export class ProjectPageModule {}

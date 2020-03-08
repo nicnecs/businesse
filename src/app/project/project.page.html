@@ -1,88 +1,32 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-button href="#" color="dark">
-            <ion-icon name="globe"></ion-icon>
-          </ion-button>
-          <ion-button href="/project-menu" color="dark">
-            <ion-icon name="book"></ion-icon>
-          </ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button color="dark" href="home">
-            <img src="/assets/BusinessELogoByNamelix.png"/>
-          </ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button href="#" color="dark">
-            <ion-icon name="log-in"></ion-icon>
-          </ion-button>
-          <ion-button href="#" color="dark">
-            <ion-icon name="person"></ion-icon>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-searchbar></ion-searchbar>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
-</ion-header>
-<ion-header padding>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title> Projektübersicht</ion-title>
-  </ion-toolbar>
+  <ion-item class="header-item">
+    <ion-button href="home" color="dark">
+      <ion-icon name="globe"></ion-icon>
+    </ion-button>
+
+    <ion-button href="/project-menu" color="dark">
+      <ion-icon name="book"></ion-icon>
+    </ion-button>
+
+    <ion-searchbar color="light" class="searchbar-input-container" mode="ios" style="color: black;"></ion-searchbar>
+    <ion-button color="secondary" style="height: 55%;" href="login.page.html">Login</ion-button>
+
+    <ion-button href="#" color="dark">
+      <ion-icon name="person"></ion-icon>
+    </ion-button>
+  </ion-item>
 </ion-header>
 
 <ion-content>
-<ion-list>
-    <ion-item-sliding>
 
-      <ion-item>
-        <ion-label>Item</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Item</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Item</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Item</ion-label>
-      </ion-item>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        {{id}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-      <ion-item-options side="end">
-        <ion-item-option (click)="unread(item)">Unread</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
+
 
 </ion-content>
-
-<ion-footer>
-  <ion-toolbar>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-button href="#" color="dark">
-            <ion-icon name="help"></ion-icon>
-          </ion-button>
-          <ion-button href="#" color="dark">
-            <ion-icon name="settings"></ion-icon>
-          </ion-button>
-          <ion-button href="#" color="dark">
-            <ion-icon name="wallet"></ion-icon>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
-</ion-footer>
-
