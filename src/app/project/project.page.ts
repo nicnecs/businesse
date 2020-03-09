@@ -17,6 +17,13 @@ export class ProjectPage implements OnInit {
 
   id = 700;
 
+  project = 
+  [{
+
+    "img_workplace" : "/assets/project/1/workplace.png"
+  
+  }]
+
   ngOnInit() {
   }
 
