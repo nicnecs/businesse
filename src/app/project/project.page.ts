@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { NavController, NavParams } from '@ionic/angular';
+import {Router, ActivatedRoute, Params} from '@angular/router';
+
+
+
 
 @Component({
   selector: 'app-project',
@@ -9,20 +13,20 @@ import { NavController, NavParams } from '@ionic/angular';
 })
 export class ProjectPage implements OnInit {
 
-  constructor(private navCtrl: NavController) { 
-    //this.id = this.navParams.get('data');
+  id;
+
+  constructor(private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.id = params["id"];
+    });
   }
 
-
-
-  id = 700;
-
   project = 
-  [{
-
-    "img_workplace" : "/assets/project/1/workplace.png"
-  
-  }]
+  [
+    {
+      "img_workplace" : "/assets/project/1/workplace.png"
+    }
+  ];
 
   ngOnInit() {
   }

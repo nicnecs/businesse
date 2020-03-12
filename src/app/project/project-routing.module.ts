@@ -6,10 +6,7 @@ import { ProjectPage } from './project.page';
 const routes: Routes = [
   {
     path: '/project',
-    component: ProjectPage,
-    children:[
-      
-    ]
+    component: ProjectPage
   }
 ];
 

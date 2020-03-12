@@ -1,0 +1,106 @@
+<!-- <ion-header>
+  <ion-toolbar  color="light">
+    <ion-title>Add Projekte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #createProjectform="ngForm" novalidate>
+  <ion-list lines>
+    <ion-item>
+      <ion-label position="stacked" color="primary">Projekttitel*</ion-label>
+      <ion-input [(ngModel)]="createProject.title" name="title" type="text" #title="ngModel" required></ion-input>
+    </ion-item>
+
+    <ion-text color="danger">
+      <p [hidden]="title.valid || submitted == false" class="ion-padding-start">
+        Title is required
+      </p>
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="stacked" color="primary">Betrieb*</ion-label>
+      <ion-input [(ngModel)]="createProject.company" name="company" #company="ngModel" type="text" required></ion-input>
+    </ion-item>
+    <ion-text color="danger">
+
+    </ion-text>
+    <p [hidden]="company.valid || submitted == false" class="ion-padding-start">
+      Company is required
+    </p>
+    <ion-item>
+      <ion-label position="stacked" color="primary">Projektbeschreibung*</ion-label>
+      <ion-input [(ngModel)]="createProject.description" name="description" #description="ngModel" type="text" required></ion-input>
+    </ion-item>
+
+    <ion-text color="danger">
+      <p [hidden]="description.valid || submitted == false" class="ion-padding-start">
+        Description is required
+      </p>
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="stacked" color="primary">Projektstart*</ion-label>
+      <ion-input [(ngModel)]="createProject.project_start" name="project-start" #project_start="ngModel" type="date" required></ion-input>
+    </ion-item>
+
+    <ion-text color="danger">
+      <p [hidden]="project_start.valid || submitted == false" class="ion-padding-start">
+        Project start is required
+      </p>
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="stacked" color="primary">Voraussichtliches Projektende*</ion-label>
+      <ion-input [(ngModel)]="createProject.project_end" name="project-end" #project_end="ngModel" type="date" required></ion-input>
+    </ion-item>
+
+    <ion-text color="danger">
+      <p [hidden]="project_end.valid || submitted == false" class="ion-padding-start">
+        Description is required
+      </p>
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="stacked" color="primary">Anmeldefrist*</ion-label>
+      <ion-input [(ngModel)]="createProject.registration_period" name="registration-period" #registration_period="ngModel" type="date" required></ion-input>
+    </ion-item>
+
+    <ion-text color="danger">
+      <p [hidden]="registration_period.valid || submitted == false" class="ion-padding-start">
+        Registration period is required
+      </p>
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="stacked" color="primary">Adresse*</ion-label>
+      <ion-input [(ngModel)]="createProject.address" name="address" #adress="ngModel" type="text" required></ion-input>
+    </ion-item>
+
+    <ion-text color="danger">
+      <p [hidden]="adress.valid || submitted == false" class="ion-padding-start">
+        Adress period is required
+      </p>
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="stacked" color="primary">Kommentar zur Adresse</ion-label>
+      <ion-input [(ngModel)]="createProject.address_comment" name="address-comment" #address_comment="ngModel" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked" color="primary">Entlohnung</ion-label>
+      <ion-input [(ngModel)]="createProject.payment" name="payment" type="number" #payment="ngModel" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked" color="primary">Anzahl der gesuchten Auftragnehmer</ion-label>
+      <ion-input [(ngModel)]="createProject.number_participants" name="number-participants" #number_participants="ngModel" type="number"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div class="ion-padding">
+    <ion-button (click)="onCreateProject(createProjectform)" type="submit" expand="block">Create</ion-button>
+  </div>
+  </form>
+</ion-content> -->

@@ -11,15 +11,8 @@ ion-header {
 ion-searchbar {
     .searchbar-input-container {
         background-color: white;
-        border-color: transparents;
     }
 }
-
-.searchbar-left-aligned.sc-ion-searchbar-ios-h 
-.searchbar-input.sc-ion-searchbar-ios{
-    background-color: white;
-}
-
 
 .container{
     position: relative;
@@ -43,16 +36,9 @@ ion-searchbar {
     background: hotpink;
 }
 
-.previewimage{
-
-    position: absolute;
-    text-align: start;
-}
-
 @media only screen and (max-width: 1024px) {
 
     #previewitem{
-        background-color: rgb(241, 177, 75);
         width: 100%;
     }
 

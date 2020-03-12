@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { UrlTree } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,66 +7,52 @@ import { UrlTree } from '@angular/router';
 })
 export class HomePage {
 
-  constructor(private navCtrl: NavController) {}
+  constructor() {}
 
-  project_id;
-
-  partner_id;
-  provider_id = 1;
+  id = 0;
 
   json = 
+  
   [
     {
-      "id" : 1,
+      "id" : 5,
       "name" : "Ein cooles Projekt",
       "category" : "Programming",
-      "company" : "TeaSausage24",
-      "frist" : "17.02.2020",
-      "project-start" : "20.02.2020",
-      "address" : ""
+      "company" : "TeaSausage24"
     },
     {
-      "id" : 2,
+      "id" : 29,
       "name" : "Super cooles Projekt",
       "category" : "Handwerk",
-      "company" : "Microsoft",
-      "frist" : "17.02.2020",
-      "project-start" : "20.02.2020",
-      "address" : "",
-      "entfernung" : "1,5km"
+      "company" : "Microsoft"
     },
     {
-      "id" : 3,
+      "id" : 19000,
       "name" : "Super Duper cooles Projekt",
       "category" : "fff",
       "company" : "Apppple",
-      "img" : "assets/preview.png",
-      "frist" : "17.02.2020",
-      "project-start" : "20.02.2020",
-      "address" : ""
-    },
-    {
-      "id" : 4,
-      "name" : "Ein cooles Projekt",
-      "category" : "Programming",
-      "company" : "TeaSausage24",
+      "img" : "img",
       "frist" : "17.02.2020",
       "project-start" : "20.02.2020"
     },
     {
       "id" : 5,
-      "name" : "Super cooles Projekt",
-      "category" : "Handwerk",
-      "company" : "Microsoft",
-      "frist" : "17.02.2020",
-      "project-start" : "20.02.2020"
+      "name" : "Ein cooles Projekt",
+      "category" : "Programming",
+      "company" : "TeaSausage24"
     },
     {
-      "id" : 6,
+      "id" : 29,
+      "name" : "Super cooles Projekt",
+      "category" : "Handwerk",
+      "company" : "Microsoft"
+    },
+    {
+      "id" : 19000,
       "name" : "Super Duper cooles Projekt",
       "category" : "fff",
       "company" : "Apppple",
-      "img" : "/assets/preview.png",
+      "img" : "img",
       "frist" : "17.02.2020",
       "project-start" : "20.02.2020"
     }
@@ -76,16 +60,8 @@ export class HomePage {
 
   toProject(project_id){
 
-    this.project_id = project_id;
+    this.id = project_id;
 
-    this.navCtrl.navigateForward(
-      [
-        '/project', 
-        {
-          "/" : this.project_id
-        }
-      ]
-      );
   }
 
 }
