@@ -5,7 +5,7 @@ import { ProjectsOverviewCoPage } from './projects-overview-co.page';
 
 const routes: Routes = [
   {path:'',
-  // redirectTo: 'Aktuelle-Projekte',
+  redirectTo: 'Aktuelle-Projekte',
   pathMatch: 'full' ,
   },
   {
