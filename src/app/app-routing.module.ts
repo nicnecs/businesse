@@ -48,30 +48,30 @@ const routes: Routes = [
     path: 'my-recent-projects',
     loadChildren: () => import('./my-recent-projects/my-recent-projects.module').then( m => m.MyRecentProjectsPageModule)
   },  
-  {
-    path: 'Aktuelle-Projekte',
-    loadChildren: () => import('./projects-overview-co/pages/tab1/tab1.module').then( m => m.Tab1PageModule)
-  },
-  {
-    path: 'Projekte',
-    loadChildren: () => import('./projects-overview-co/pages/tab2/tab2.module').then( m => m.Tab2PageModule)
-  },
-  {
-    path: 'Add-Projekte',
-    loadChildren: () => import('./projects-overview-co/pages/tab3/tab3.module').then( m => m.Tab3PageModule)
-  },
-  {
-    path: 'Angefragte-Projekte',
-    loadChildren: () => import('./my-recent-projects/tab1/tab1.module').then( m => m.Tab1PageModule)
-  },
-  {
-    path: 'Aktuelle-Projekte',
-    loadChildren: () => import('./my-recent-projects/tab2/tab2.module').then( m => m.Tab2PageModule)
-  },
-  {
-    path: 'Vergangene-Aufträge',
-    loadChildren: () => import('./my-recent-projects/tab3/tab3.module').then( m => m.Tab3PageModule)
-  }
+  // {
+  //   path: 'Aktuelle-Projekte',
+  //   loadChildren: () => import('./projects-overview-co/pages/tab1/tab1.module').then( m => m.Tab1PageModule)
+  // },
+  // {
+  //   path: 'Projekte',
+  //   loadChildren: () => import('./projects-overview-co/pages/tab2/tab2.module').then( m => m.Tab2PageModule)
+  // },
+  // {
+  //   path: 'Add-Projekte',
+  //   loadChildren: () => import('./projects-overview-co/pages/tab3/tab3.module').then( m => m.Tab3PageModule)
+  // },
+  // {
+  //   path: 'Angefragte-Projekte',
+  //   loadChildren: () => import('./my-recent-projects/tab1/tab1.module').then( m => m.Tab1PageModule)
+  // },
+  // {
+  //   path: 'Aktuelle-Projekte',
+  //   loadChildren: () => import('./my-recent-projects/tab2/tab2.module').then( m => m.Tab2PageModule)
+  // },
+  // {
+  //   path: 'Vergangene-Aufträge',
+  //   loadChildren: () => import('./my-recent-projects/tab3/tab3.module').then( m => m.Tab3PageModule)
+  // }
 
 
 ];
