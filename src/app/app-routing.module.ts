@@ -47,7 +47,11 @@ const routes: Routes = [
   {
     path: 'my-recent-projects',
     loadChildren: () => import('./my-recent-projects/my-recent-projects.module').then( m => m.MyRecentProjectsPageModule)
-  },  
+  },   {
+    path: 'recent-projects',
+    loadChildren: () => import('./recent-projects/recent-projects.module').then( m => m.RecentProjectsPageModule)
+  },
+ 
   // {
   //   path: 'Aktuelle-Projekte',
   //   loadChildren: () => import('./projects-overview-co/pages/tab1/tab1.module').then( m => m.Tab1PageModule)
