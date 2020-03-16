@@ -51,7 +51,10 @@ const routes: Routes = [
     path: 'recent-projects',
     loadChildren: () => import('./recent-projects/recent-projects.module').then( m => m.RecentProjectsPageModule)
   },
- 
+  {
+    path: 'profile-menu',
+    loadChildren: () => import('./profile-menu/profile-menu.module').then( m => m.ProfileMenuPageModule)
+  },
   // {
   //   path: 'Aktuelle-Projekte',
   //   loadChildren: () => import('./projects-overview-co/pages/tab1/tab1.module').then( m => m.Tab1PageModule)

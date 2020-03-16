@@ -17,10 +17,6 @@ export class ProjectMenuPage implements OnInit {
       title: 'Projektübersicht',
       url: '/project/'
     },
-    {
-      title: 'meine letzten Projekte',
-      URL: '/recent-projects'
-    }
   ];
 
   selectedPath = '';
