@@ -42,9 +42,10 @@
       <ion-label></ion-label>
     </ion-row>
     <ion-row>
-      <ion-col class="container">
-        <ion-item id="previewitem">
-            <ion-grid fixed >
+      <ion-col size-md="9" size-xs="12">
+
+        <!-- <ion-item id="previewitem">
+            <ion-grid fixed > -->
     
               <ion-label></ion-label>
               <ion-row *ngFor="let project of json">
@@ -60,15 +61,14 @@
                   </ion-card-content>
                 </ion-card>
               </ion-row>
-            </ion-grid>
-          </ion-item>
-          <ion-item id="sideitem">
-            <ion-label>{{id}}</ion-label>
-          </ion-item>
+            <!-- </ion-grid>
+          </ion-item> -->
       </ion-col>
-      <!--<ion-col style="max-width: 20%;">
+
+      <ion-col size-md="3" size-xs="12">
         {{id}}
-      </ion-col>-->
+      </ion-col>
+
     </ion-row>
   </ion-grid>
 

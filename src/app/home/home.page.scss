@@ -36,21 +36,21 @@ ion-searchbar {
     background: hotpink;
 }
 
-@media only screen and (max-width: 1024px) {
+// @media only screen and (max-width: 1024px) {
 
-    #previewitem{
-        width: 100%;
-    }
+//     #previewitem{
+//         width: 100%;
+//     }
 
-    #sideitem{
-        width: 100%;
-        top: unset;
-        right: unset;
-        left: 0;
-        bottom: 0;
-    }
+//     #sideitem{
+//         width: 100%;
+//         top: unset;
+//         right: unset;
+//         left: 0;
+//         bottom: 0;
+//     }
 
-}
+// }
 
 #previewitembutton[type=button] {
     background-color: #5BB32E;
