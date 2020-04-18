@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>profile-business</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>{{business.name}}</ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>{{business.description}}</ion-card-content>
+                <ion-card-content>
+                    <ion-card-title>Diesen Betrieb kontaktieren?</ion-card-title>
+                </ion-card-content>
+                <ion-card-content>Email Adresse: {{business.emailAddress}}</ion-card-content>
+                <ion-card-content>Telefon: {{business.tel}}</ion-card-content>
+                <ion-card-content>Website: {{business.websiteURL}}</ion-card-content>
+            </ion-card>
+        </ion-row>
+    </ion-grid>
+</ion-content>
