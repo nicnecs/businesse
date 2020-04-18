@@ -108,7 +108,7 @@
                               <!-- <ion-item id="previewitembutton" button (click)="toProject(project.id)" style="font-size: small; font-weight: 800; text-align: center; background-color: #77D12F;">
                                 <ion-label>Zum Projekt</ion-label>
                               </ion-item> -->
-                              <ion-button mode="ios" color="primary" (click)="toProject(project.id)" expand="full" >
+                              <ion-button mode="ios" color="primary" [routerLink]="['/project', project.id]"  routerDirection="forward" expand="full" >
                                 Zum Projekt
                               </ion-button>
                             </ion-col>

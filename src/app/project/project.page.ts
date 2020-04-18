@@ -13,7 +13,6 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 })
 export class ProjectPage implements OnInit {
 
-  id;
 
   constructor(private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -21,10 +20,12 @@ export class ProjectPage implements OnInit {
     });
   }
 
-  project = 
+  id;
+
+  json = 
   [
     {
-      "img_workplace" : "/assets/project/1/workplace.png"
+      "img_workplace" : "./assets/project/1/workplace.png"
     }
   ];
 
