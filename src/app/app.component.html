@@ -10,7 +10,7 @@
     </ion-button>
 
     <ion-searchbar color="light" class="searchbar-input-container" mode="ios" style="color: black;"></ion-searchbar>
-    <ion-button color="secondary" style="height: 55%;" href="/login">Login</ion-button>
+    <ion-button color="secondary" style="height: 55%;" (click)="loginAlert()" >{{logindata}}</ion-button>
 
     <ion-button href="#" color="dark">
       <ion-icon name="person"></ion-icon>
