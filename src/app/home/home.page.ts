@@ -10,6 +10,52 @@ export class HomePage {
   constructor() {}
 
   id = 0;
+  category = "Alle Kategorien";
+
+  Kategorien = 
+  [
+    {
+      "name" : "Alle Kategorien"
+    },
+    {
+      "name" : "Informatik",
+      "id" : ""
+    },
+    {
+      "name" : "Gastronomie",
+      "id" : ""
+    },
+    {
+      "name" : "Rohbau",
+      "id" : ""
+    },
+    {
+      "name" : "Verwaltung",
+      "id" : ""
+    },
+    {
+      "name" : "Lagermanagement",
+      "id" : ""
+    },
+    {
+      "name" : "Handwerk",
+      "id" : ""
+    },
+    {
+      "name" : "Versandhandel",
+      "id" : ""
+    },
+    {
+      "name" : "E-Commerce",
+      "id" : ""
+    },
+    {
+      "name" : "Gebäudereinigung",
+      "id" : ""
+    }
+
+  ]
+
 
   json = 
   
@@ -17,7 +63,7 @@ export class HomePage {
     {
       "id" : 5,
       "name" : "Ein cooles Projekt",
-      "category" : "Programming",
+      "category" : "Informatik",
       "company" : "TeaSausage24",
       "img" : "./assets/project/1/workplace.png"
     },
@@ -31,7 +77,7 @@ export class HomePage {
     {
       "id" : 19000,
       "name" : "Super Duper cooles Projekt",
-      "category" : "fff",
+      "category" : "Informatik",
       "company" : "Apppple",
       "img" : "./assets/project/1/workplace.png",
       "frist" : "17.02.2020",
@@ -40,7 +86,7 @@ export class HomePage {
     {
       "id" : 5,
       "name" : "Ein cooles Projekt",
-      "category" : "Programming",
+      "category" : "Gebäudereinigung",
       "company" : "TeaSausage24",
       "img" : "./assets/project/1/workplace.png"
     },
@@ -54,7 +100,7 @@ export class HomePage {
     {
       "id" : 19000,
       "name" : "Super Duper cooles Projekt",
-      "category" : "fff",
+      "category" : "Rohbau",
       "company" : "Apppple",
       "img" : "./assets/project/1/workplace.png",
       "frist" : "17.02.2020",
@@ -66,6 +112,10 @@ export class HomePage {
 
     this.id = project_id;
 
+  }
+
+  setCategory(name){
+    this.category = name;
   }
 
 }
