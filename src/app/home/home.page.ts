@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Http, Response } from '@angular/http';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -7,7 +9,15 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(public http : Http) {
+    this.http = http;
+  }
+
+  link = "localhost:8080/businesse/getHomeData.php";
+
+  ionViewDidLoad(){
+   
+  }
 
   id = 0;
   category = "Alle Kategorien";
@@ -105,7 +115,7 @@ export class HomePage {
       "img" : "./assets/project/1/workplace.png",
       "frist" : "17.02.2020",
       "project-start" : "20.02.2020"
-    }
+    },
   ]
 
   toProject(project_id){

@@ -37,14 +37,14 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid style="left: 30%; height: 100%; background-color: transparent;">
+  <ion-grid style="left: 30%; height: 100%; background-color: white;">
     <!--Kategorie-Slider-->
     <ion-row style="background-color: white;">
       <ion-col size="12">
         <ion-slides mode="ios" pager="false" scrollbar="ios" [options]="{slidesPerView: 'auto', zoom: false, grabCursor: true}">
           <ion-slide *ngFor="let card of Kategorien" style="width: 250px;">
             <ion-col>
-              <ion-card color="primary" (click)="setCategory(card.name)">
+              <ion-card button color="primary" (click)="setCategory(card.name)">
                 <ion-card-content>
                   {{card.name}}
                 </ion-card-content>
@@ -55,7 +55,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
+    <ion-row style="background-color: rgb(236, 236, 236);">
       <ion-col size-lg="9" size-xs="12">
 
         <!-- <ion-item id="previewitem">
