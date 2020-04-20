@@ -21,6 +21,19 @@ export class HomePage {
 
   id = 0;
   category = "Alle Kategorien";
+  filter="Alle Item";
+
+
+
+  Filter =[
+    {"filter":"Alle Item"},
+    {"filter":"Standort"},
+    {"filter":"Bewertung"},
+    {"filter":"Bezahlung"},
+    {"filter":"Neuste Einträge"},
+    
+    
+  ]
 
   Kategorien = 
   [
@@ -75,14 +88,16 @@ export class HomePage {
       "name" : "Ein cooles Projekt",
       "category" : "Informatik",
       "company" : "TeaSausage24",
-      "img" : "./assets/project/1/workplace.png"
+      "img" : "./assets/project/1/workplace.png",
+      "filter" : "Neuste Einträge"
     },
     {
       "id" : 29,
       "name" : "Super cooles Projekt",
       "category" : "Handwerk",
       "company" : "Microsoft",
-      "img" : "./assets/project/1/workplace.png"
+      "img" : "./assets/project/1/workplace.png",
+      "filter" : "Neuste Einträge"
     },
     {
       "id" : 19000,
@@ -92,6 +107,7 @@ export class HomePage {
       "img" : "./assets/project/1/workplace.png",
       "frist" : "17.02.2020",
       "project-start" : "20.02.2020",
+      "filter" : "Standort"
     },
     {
       "id" : 5,
@@ -99,13 +115,15 @@ export class HomePage {
       "category" : "Gebäudereinigung",
       "company" : "TeaSausage24",
       "img" : "./assets/project/1/workplace.png"
+      , "filter" : "Bewertung"
     },
     {
       "id" : 29,
       "name" : "Super cooles Projekt",
       "category" : "Handwerk",
       "img" : "./assets/project/1/workplace.png",
-      "company" : "Microsoft"
+      "company" : "Microsoft",
+      "filter" : "Bezahlung"
     },
     {
       "id" : 19000,
@@ -114,8 +132,9 @@ export class HomePage {
       "company" : "Apppple",
       "img" : "./assets/project/1/workplace.png",
       "frist" : "17.02.2020",
-      "project-start" : "20.02.2020"
-    },
+      "project-start" : "20.02.2020",
+      "filter" : "Bezahlung"
+    }
   ]
 
   toProject(project_id){

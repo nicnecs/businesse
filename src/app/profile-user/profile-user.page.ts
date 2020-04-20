@@ -12,8 +12,11 @@ export class ProfileUserPage implements OnInit {
 
     user =
         {
+            "id": 1,
             "userImage": "./assets/project/img/user/Muster.jpeg",
             "username": "Max Mustermann",
+            "geburtsdatum": "00.00.0000",
+            "adresse": "Straße HausNummer, PLZ Stadt",
             "experience": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor " +
                 "invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo" +
                 " dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. " +
@@ -29,7 +32,8 @@ export class ProfileUserPage implements OnInit {
                 "dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet " +
                 "clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
         }
-    ;
+    
+            ;
 
     ngOnInit() {
     }

@@ -1,40 +1,17 @@
-<!-- 
-<ion-header >
-  <ion-toolbar  class="color">
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-button href="#" color="dark">
-            <ion-icon name="globe"></ion-icon>
-          </ion-button>
-          <ion-button href="/project-menu" color="dark">
-            <ion-icon name="book"></ion-icon>
-          </ion-button>
-        </ion-col>
-        
-        <ion-col>
-          <ion-button href="#" color="dark">
-            <ion-icon name="log-in"></ion-icon>
-          </ion-button>
-          <ion-button href="#" color="dark">
-            <ion-icon name="person"></ion-icon>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-searchbar style=" color: white;"></ion-searchbar>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
-</ion-header> -->
 
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Header</ion-title>
-  </ion-toolbar>
-</ion-header>
+ <ion-item>
+  <ion-label>Filter</ion-label>
+  <ion-select   interface="popover">
+                                                  <!-- [(ngModel)]="toppings" multiple="true" -->
+    <ion-select-option value="Standort">Standort</ion-select-option>
+    <ion-select-option value="Bewertung">Bewertung</ion-select-option>
+    <ion-select-option value="Bezahlung ">Bezahlung </ion-select-option>
+    <ion-select-option value="NeusteEinträge">Neuste Einträge</ion-select-option>
+    
+  </ion-select>
+  </ion-item>
+
+
 
 <ion-content>
   <ion-grid style="left: 30%; height: 100%; background-color: white;">
