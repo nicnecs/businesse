@@ -1,3 +1,14 @@
+<ion-item>
+  <ion-label>Filter</ion-label>
+  <ion-select   interface="popover">
+                                                  <!-- [(ngModel)]="toppings" multiple="true" -->
+    <ion-select-option value="Standort">Standort</ion-select-option>
+    <ion-select-option value="Bewertung">Bewertung</ion-select-option>
+    <ion-select-option value="Bezahlung ">Bezahlung </ion-select-option>
+    <ion-select-option value="NeusteEinträge">Neuste Einträge</ion-select-option>
+    
+  </ion-select>
+  </ion-item>
 
 
 <ion-content>
@@ -5,7 +16,7 @@
     <ion-tab-bar >
 
       <ion-tab-button routerLink="/Projekte" routerDirection="root" tab="Projekte" >
-        <ion-icon color="dark" name="business"></ion-icon>
+        <ion-icon color="dark" name="checkbox"></ion-icon>
         <!-- <ion-label> Projekte</ion-label> -->
       </ion-tab-button>
 

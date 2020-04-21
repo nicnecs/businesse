@@ -1,33 +1,68 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-title>profile-user</ion-title>
-    </ion-toolbar>
-</ion-header>
 
-<ion-content>
-    <ion-grid>
-        <ion-row>
-            <ion-card>
-                <ion-card-header>
-                    <ion-card-subtitle>
-                        <ion-avatar>
-                            <img src="{{user.userImage}}"/>
-                        </ion-avatar>
-                    </ion-card-subtitle>
-                    <ion-card-title>{{user.username}}</ion-card-title>
-                </ion-card-header>
-
-                <ion-card-content>{{user.basicInformation}}</ion-card-content>
-                <ion-card-content>
-                    <ion-card-title>{{user.username}}s letze Tätigkeiten</ion-card-title>
-                </ion-card-content>
-                <ion-card-content>{{user.experience}}</ion-card-content>
-                <ion-card-content>
-                    <ion-card-title>Diesen Bewerber kontaktieren?</ion-card-title>
-                </ion-card-content>
-                <ion-card-content>Email Adresse: {{user.emailAddress}}</ion-card-content>
-                <ion-card-content>Telefon: {{user.tel}}</ion-card-content>
-            </ion-card>
-        </ion-row>
-    </ion-grid>
-</ion-content>
+  
+<!-- <ion-content *ngFor="let id of user; let i =index "> -->
+    <ion-content > 
+        <header >
+    
+            <ion-avatar class="img" >
+                <img src="{{user.userImage}}"/>
+            </ion-avatar>
+            
+          
+            <ion-card-title padding text-center>
+                {{user.username}}
+            </ion-card-title>
+          
+          </header>
+        <ion-card-content padding>
+      
+        </ion-card-content>
+      
+        <ion-chip padding >
+            <ion-icon name="mail"></ion-icon>
+          <ion-label>user.emailAddress</ion-label>
+        </ion-chip>
+      
+      
+        <ion-chip padding>
+          <ion-icon name="call"></ion-icon>
+          <ion-label>{{user.tel}}</ion-label>
+        </ion-chip>
+      
+      
+        <ion-item>
+          <ion-avatar >
+          </ion-avatar>
+          <ion-label>GeburtsDatum:  {{user.geburtsdatum}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-avatar >
+          </ion-avatar>  
+          <ion-label>Adresse: {{user.adresse}}</ion-label>
+        </ion-item>
+    
+        <ion-grid>
+            <ion-row>
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-subtitle>
+                           
+                        </ion-card-subtitle>
+                        <ion-card-title>Motivierungsbrief</ion-card-title>
+                    </ion-card-header>
+    
+                    <ion-card-content>{{user.basicInformation}}</ion-card-content>
+                    <ion-card-content>
+                        <ion-card-title>{{user.username}}s letze Tätigkeiten</ion-card-title>
+                    </ion-card-content>
+                    <ion-card-content>{{user.experience}}</ion-card-content>
+                    <!-- <ion-card-content>
+                        <ion-card-title>Diesen Bewerber kontaktieren?</ion-card-title>
+                    </ion-card-content>
+                    <ion-card-content>Email Adresse: {{user.emailAddress}}</ion-card-content>
+                    <ion-card-content>Telefon: {{user.tel}}</ion-card-content> -->
+                </ion-card>
+            </ion-row>
+        </ion-grid>
+    </ion-content>
+    

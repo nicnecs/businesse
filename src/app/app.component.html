@@ -1,27 +1,56 @@
-<ion-app>
-<ion-header class="header">
-  <ion-item class="header-item">
-    <ion-button href="" color="dark" color="secondary" style="height: 55%;">
-      <ion-icon name="globe"></ion-icon>
-    </ion-button>
 
-    <ion-button href="/project-menu" color="secondary" style="height: 55%;">
-      <ion-icon name="book"></ion-icon>
-    </ion-button>
+<link href='https://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lato:100italic' rel='stylesheet' type='text/css'>
 
-    <ion-searchbar color="light" class="searchbar-input-container" mode="ios" style="color: black;"></ion-searchbar>
+
+<div *ngIf="showSplash" class="splash">
+  <div class="spinner">
+    <div class="dot1"></div>
+    <div class="dot2"></div>
+  </div>
+</div> 
+<ion-app >
+ 
+
+  <ion-header   slot="secondary" class="header" >
+    
+    <ion-item class="header-item" >
+      <!-- <div class="had">
+        <h1 class="had-r1">BUSINESSE <span class="had-amp">TO</span> BUSINESSE</h1>
+       </div>   -->
+
+      <ion-button [routerLink]="['']"  color="dark">
+        <ion-icon name="globe"></ion-icon>
+      </ion-button>
+
+      <ion-button [routerLink]="['/projects-overview-co/Aktuelle-Projekte']"  color="dark">
+        <ion-icon name="business"></ion-icon>
+      </ion-button>
+  
+      
+  
+      <ion-button  [routerLink]="['/project-menu']"  color="dark">
+        <ion-icon name="book"></ion-icon>
+      </ion-button>
+  
+      <ion-button slot="end" [routerLink]="['/profile-user']"    color="dark">
+        <ion-icon name="person"></ion-icon>
+      </ion-button>
+  
+  
+  
+    <ion-searchbar color="light" class="searchbar-input-container" mode="ios" style="color: black;"> </ion-searchbar>
+  
     <ion-button color="secondary" style="height: 55%;" (click)="loginAlert()" >{{logindata}}</ion-button>
 
-    <ion-button href="#" color="dark">
-      <ion-icon name="person"></ion-icon>
-    </ion-button>
-  </ion-item>
-</ion-header>
+      
+    </ion-item>
+  </ion-header>
 
-
-<body>
-  <ion-router-outlet ></ion-router-outlet>
-</body>
-</ion-app> 
-
-
+  
+  <body class="router">
+    <ion-router-outlet ></ion-router-outlet>
+  </body>
+  </ion-app> 
+  
+  
