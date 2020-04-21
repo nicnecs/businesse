@@ -143,12 +143,12 @@ export class HomePage {
 
   ]
 
-  json = [];
+  backupjson = [];
 
 
-  backupjson = 
+  json = 
   
-  [,
+  [
     {
       "id" : 5,
       "name" : "Ein cooles Projekt",
