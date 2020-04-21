@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 
-import { Http, Response } from '@angular/http';
+import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { HTTP } from '@ionic-native/http/ngx';
+import { Platform, LoadingController } from '@ionic/angular';
+import { finalize } from 'rxjs/operators';
+import { from } from 'rxjs';
+import { error } from 'util';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +15,63 @@ import { Http, Response } from '@angular/http';
 })
 export class HomePage {
 
-  constructor(public http : Http) {
-    this.http = http;
+  constructor(private http : HttpClient, private nativeHttp : HTTP, private plt : Platform, private loadingCtrl : LoadingController) {
+    
   }
 
   link = "localhost:8080/businesse/getHomeData.php";
 
-  ionViewDidLoad(){
-   
+  data = "Hallo";
+
+  ionViewDidEnter(){
+  //  this.getData();
+  }
+
+  async getStandardData(){
+
+    let loading = await this.loadingCtrl.create();
+    await loading.present();
+
+    this.http.get('http://businesse.eastus.cloudapp.azure.com:8080/businesse/getHomeData.php').pipe(
+      finalize(() => loading.dismiss())
+    ).subscribe(data => {
+      this.data = data['body'];
+      console.log("On the Way");
+      
+    }, err => {
+      console.log('Call error: ', err);
+    })
+  }
+
+  // Für Cordova Ausführung
+  // async getNativeData(){
+  //   let loading = await this.loadingCtrl.create();
+  //   await loading.present();
+
+  //   let nativeCall = this.nativeHttp.get('http://businesse.eastus.cloudapp.azure.com:8080/businesse/getHomeData.php', {}, {
+  //     'Content-Type': 'application/json'
+  //   })
+    
+  //   from(nativeCall).pipe(
+  //     finalize(() => loading.dismiss())
+  //   ).subscribe(data => {
+  //     console.log('native data: ', data);
+  //     this.data = JSON.parse(data.data).results;
+  //   }, err => {
+  //     console.log('Call error: ', err);
+  //   })
+  // }
+
+
+  //Normale Abfrage
+  getData(){
+    this.http.get('http://businesse.eastus.cloudapp.azure.com:8080/businesse/getHomeData.php').subscribe(data => 
+    { 
+      this.data = data['result'];
+    }, success => {
+      console.log("Success");
+    }
+    );
   }
 
   id = 0;
@@ -66,10 +121,12 @@ export class HomePage {
 
   ]
 
+  json = [];
 
-  json = 
+
+  backupjson = 
   
-  [
+  [,
     {
       "id" : 5,
       "name" : "Ein cooles Projekt",
