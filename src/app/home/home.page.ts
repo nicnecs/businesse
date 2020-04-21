@@ -23,6 +23,9 @@ export class HomePage {
 
   data = "Hallo";
 
+
+  toppings = "";
+
   ionViewDidEnter(){
   //  this.getData();
   }
@@ -73,6 +76,12 @@ export class HomePage {
     }
     );
   }
+
+
+  filterChanged(ev: any) {
+    console.log('Segment changed', ev);
+  }
+
 
   id = 0;
   category = "Alle Kategorien";

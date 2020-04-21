@@ -1,35 +1,66 @@
 
- <ion-item>
+ <!-- <ion-item>
   <ion-label>Filter</ion-label>
   <ion-select   interface="popover">
-                                                  <!-- [(ngModel)]="toppings" multiple="true" -->
+                                                  [(ngModel)]="toppings" multiple="true"
     <ion-select-option value="Standort">Standort</ion-select-option>
     <ion-select-option value="Bewertung">Bewertung</ion-select-option>
     <ion-select-option value="Bezahlung ">Bezahlung </ion-select-option>
     <ion-select-option value="NeusteEinträge">Neuste Einträge</ion-select-option>
     
   </ion-select>
-  </ion-item>
+  </ion-item> -->
 
 
 
 <ion-content>
-  <ion-grid style="left: 30%; height: 100%; background-color: white;">
-    <!--Kategorie-Slider-->
-    <ion-row style="background-color: white;">
-      <ion-col size="12">
-        <ion-slides mode="ios" pager="false" scrollbar="ios" [options]="{slidesPerView: 'auto', zoom: false, grabCursor: true}">
-          <ion-slide *ngFor="let card of Kategorien" style="width: 250px;">
-            <ion-col>
-              <ion-card button color="primary" (click)="setCategory(card.name)">
-                <ion-card-content>
-                  {{card.name}}
-                </ion-card-content>
-              </ion-card>
-            </ion-col>
-          </ion-slide>
-        </ion-slides>
+
+  <!--Kategorie-Slider-->
+  <ion-slides style="overflow: hidden; background-color: white;" mode="ios" pager="false" [options]="{slidesPerView: 'auto', zoom: true, grabCursor: false}">
+    <ion-slide *ngFor="let card of Kategorien" style="width: 250px;">
+      <ion-col>
+        <ion-card button color="primary" (click)="setCategory(card.name)">
+          <ion-card-content>
+            {{card.name}}
+          </ion-card-content>
+        </ion-card>
       </ion-col>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-grid style="height: 100%; background-color: white;">
+    
+    <!-- <ion-row>
+      <ion-col size-md="9" size-xs="6">
+      </ion-col>
+      <ion-col size-md="3" size-xs="6">
+        <ion-item>
+          <ion-select mode="ios" interface="popover" placeholder="Filter">
+            <ion-select-option value="Standort">Standort</ion-select-option>
+            <ion-select-option value="Bewertung">Bewertung</ion-select-option>
+            <ion-select-option value="Bezahlung ">Bezahlung </ion-select-option>
+            <ion-select-option value="NeusteEinträge">Neuste Einträge</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row> -->
+
+    
+    <ion-row>
+      <ion-segment color="secondary" mode="ios" value="newest" (ionChange)="filterChanged($event)">
+        <ion-segment-button value="location">
+          <ion-label>Standort</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="rate">
+          <ion-label>Bewertung</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="price">
+          <ion-label>Bezahlung</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="newest">
+          <ion-label>Neueste Einträge</ion-label>
+        </ion-segment-button>
+      </ion-segment>
     </ion-row>
 
     <ion-row>
