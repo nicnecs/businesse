@@ -26,8 +26,8 @@ export class HomePage {
 
   toppings = "";
 
-  ionViewDidEnter(){
-  //  this.getData();
+  ionViewDidLoad(){
+   this.getData();
   }
 
   async getStandardData(){
@@ -38,11 +38,12 @@ export class HomePage {
     this.http.get('http://businesse.eastus.cloudapp.azure.com:8080/businesse/getHomeData.php').pipe(
       finalize(() => loading.dismiss())
     ).subscribe(data => {
-      this.data = data['body'];
+      this.json = data['_body'];
       console.log("On the Way");
       
-    }, err => {
-      console.log('Call error: ', err);
+    }, success => {
+      console.log("SUCCESS");
+      // console.log('Call error: ', err);
     })
   }
 
@@ -70,7 +71,7 @@ export class HomePage {
   getData(){
     this.http.get('http://businesse.eastus.cloudapp.azure.com:8080/businesse/getHomeData.php').subscribe(data => 
     { 
-      this.data = data['result'];
+      this.json = data['_body'];
     }, success => {
       console.log("Success");
     }
@@ -143,10 +144,10 @@ export class HomePage {
 
   ]
 
-  backupjson = [];
+  json = [];
 
 
-  json = 
+  backupjson = 
   
   [
     {
@@ -211,6 +212,7 @@ export class HomePage {
 
   setCategory(name){
     this.category = name;
+    this.getStandardData();
   }
 
 }

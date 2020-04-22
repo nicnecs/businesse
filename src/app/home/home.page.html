@@ -17,13 +17,16 @@
 
   <!--Kategorie-Slider-->
   <ion-slides style="overflow-x: hidden; background-color: white;" mode="ios" pager="false" [options]="{slidesPerView: 'auto', zoom: false, grabCursor: false}">
-    <ion-slide *ngFor="let card of Kategorien" style="width: 250px;">
+    <ion-slide *ngFor="let card of Kategorien" style="width: fit-content;">
       <ion-col>
-        <ion-card button color="primary" (click)="setCategory(card.name)">
+        <!-- <ion-card button color="primary" (click)="setCategory(card.name)">
           <ion-card-content>
             {{card.name}}
           </ion-card-content>
-        </ion-card>
+        </ion-card> -->
+        <ion-button mode="ios" color="primary" (click)="setCategory(card.name)" expand="block" fill="solid" shape="round">
+          {{card.name}}
+        </ion-button>
       </ion-col>
     </ion-slide>
   </ion-slides>

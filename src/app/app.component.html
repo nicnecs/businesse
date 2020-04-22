@@ -11,39 +11,30 @@
 </div> 
 <ion-app >
  
-
-  <ion-header   slot="secondary" class="header" >
+<!-- Nicht Eingeloggt Header -->
+  <ion-header slot="secondary" class="header" >
     
     <ion-item class="header-item" >
-      <!-- <div class="had">
-        <h1 class="had-r1">BUSINESSE <span class="had-amp">TO</span> BUSINESSE</h1>
-       </div>   -->
 
-      <ion-button [routerLink]="['']"  color="dark">
-        <ion-icon name="globe"></ion-icon>
+      <ion-button color="secondary" [routerLink]="['']" style="height: 50%;" >
+        Home
       </ion-button>
 
-      <ion-button [routerLink]="['/projects-overview-co/Aktuelle-Projekte']"  color="dark">
+      <ion-button [routerLink]="['/projects-overview-co/Aktuelle-Projekte']" style="height: 50%;"  color="secondary">
         <ion-icon name="business"></ion-icon>
       </ion-button>
   
       
   
-      <ion-button  [routerLink]="['/project-menu']"  color="dark">
-        <ion-icon name="book"></ion-icon>
-      </ion-button>
-  
-      <ion-button slot="end" [routerLink]="['/profile-user']"    color="dark">
-        <ion-icon name="person"></ion-icon>
-      </ion-button>
   
   
+    <ion-searchbar placeholder="Als Anonym" color="light" class="searchbar-input-container" mode="ios" style="color: black;"> </ion-searchbar>
   
-    <ion-searchbar color="light" class="searchbar-input-container" mode="ios" style="color: black;"> </ion-searchbar>
-  
-    <ion-button color="secondary" style="height: 55%;" (click)="loginAlert()" >{{logindata}}</ion-button>
+    <ion-button color="secondary" style="height: 50%; width: fit-content;" (click)="loginAlert()" >Login</ion-button>
 
-      
+    <ion-button slot="end" color="secondary" style="height: 50%; width: fit-content;" [routerLink]="['/signup']">Registrieren</ion-button>
+    
+
     </ion-item>
   </ion-header>
 
