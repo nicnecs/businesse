@@ -3,38 +3,21 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   // { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: '', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
-  // {
-  //   path: 'project',
-  //   loadChildren: () => import('./project/project.module').then( m => m.ProjectPageModule)
-  // },
+  { 
+    path: '', 
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
   {
     path: 'project/:id',
     loadChildren: () => import('./project/project.module').then( m => m.ProjectPageModule)
-  },
-  {
-    path: 'project-menu',
-    loadChildren: () => import('./project-menu/project-menu.module').then( m => m.ProjectMenuPageModule)
   },
   {
     path: 'project-create',
     loadChildren: () => import('./project-create/project-create.module').then( m => m.ProjectCreatePageModule)
   },
   {
-    path: 'header-footer',
-    loadChildren: () => import('./header-footer/header-footer.module').then( m => m.HeaderFooterPageModule)
-  },
-  // {
-  //   path: 'login',
-  //   loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  // },
-  {
     path: 'signup',
     loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
-  },
-  {
-    path: 'account',
-    loadChildren: () => import('./account/account.module').then( m => m.AccountPageModule)
   },
   {
     path: 'projects-overview-co',
@@ -56,31 +39,6 @@ const routes: Routes = [
     path: 'profile-business',
     loadChildren: () => import('./profile-business/profile-business.module').then( m => m.ProfileBusinessPageModule)
   },
- 
-  // {
-  //   path: 'Aktuelle-Projekte',
-  //   loadChildren: () => import('./projects-overview-co/pages/tab1/tab1.module').then( m => m.Tab1PageModule)
-  // },
-  // {
-  //   path: 'Projekte',
-  //   loadChildren: () => import('./projects-overview-co/pages/tab2/tab2.module').then( m => m.Tab2PageModule)
-  // },
-  // {
-  //   path: 'Add-Projekte',
-  //   loadChildren: () => import('./projects-overview-co/pages/tab3/tab3.module').then( m => m.Tab3PageModule)
-  // },
-  // {
-  //   path: 'Angefragte-Projekte',
-  //   loadChildren: () => import('./my-recent-projects/tab1/tab1.module').then( m => m.Tab1PageModule)
-  // },
-  // {
-  //   path: 'Aktuelle-Projekte',
-  //   loadChildren: () => import('./my-recent-projects/tab2/tab2.module').then( m => m.Tab2PageModule)
-  // },
-  // {
-  //   path: 'Vergangene-Aufträge',
-  //   loadChildren: () => import('./my-recent-projects/tab3/tab3.module').then( m => m.Tab3PageModule)
-  // }
 
 
 ];
