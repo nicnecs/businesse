@@ -8,6 +8,10 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
+    path: 'header',
+    loadChildren: () => import('./header/header.module').then( m => m.HeaderPageModule)
+  },
+  {
     path: 'project/:id',
     loadChildren: () => import('./project/project.module').then( m => m.ProjectPageModule)
   },
@@ -39,6 +43,11 @@ const routes: Routes = [
     path: 'profile-business',
     loadChildren: () => import('./profile-business/profile-business.module').then( m => m.ProfileBusinessPageModule)
   },
+  {
+    path: 'header',
+    loadChildren: () => import('./header/header.module').then( m => m.HeaderPageModule)
+  },
+
 
 
 ];
