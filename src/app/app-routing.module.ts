@@ -46,7 +46,19 @@ const routes: Routes = [
   {
     path: 'header',
     loadChildren: () => import('./header/header.module').then( m => m.HeaderPageModule)
+  },  {
+    path: 'impressum',
+    loadChildren: () => import('./impressum/impressum.module').then( m => m.ImpressumPageModule)
   },
+  {
+    path: 'datenschutz',
+    loadChildren: () => import('./datenschutz/datenschutz.module').then( m => m.DatenschutzPageModule)
+  },
+  {
+    path: 'agb',
+    loadChildren: () => import('./agb/agb.module').then( m => m.AgbPageModule)
+  },
+
 
 
 
