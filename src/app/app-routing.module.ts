@@ -58,6 +58,10 @@ const routes: Routes = [
     path: 'agb',
     loadChildren: () => import('./agb/agb.module').then( m => m.AgbPageModule)
   },
+  {
+    path: 'sponsoring',
+    loadChildren: () => import('./sponsoring/sponsoring.module').then( m => m.SponsoringPageModule)
+  },
 
 
 
