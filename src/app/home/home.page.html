@@ -61,6 +61,14 @@
       </ion-segment>
     </ion-row>
 
+    <ion-row>
+      <ion-list>
+        <ion-item>
+          <ion-input (click)="showAddressModal()" [(ngModel)]="address.place" type="text" placeholder="Location Filter"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-row>
+
   <ion-grid>
     <ion-row style="background-color: rgb(236, 236, 236);">
       <ion-col size-lg="9" size-xs="12">

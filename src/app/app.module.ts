@@ -15,9 +15,11 @@ import { HTTP } from "@ionic-native/http/ngx";
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { AutocompletePage} from './autocomplete/autocomplete.page';
+
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, AutocompletePage],
+  entryComponents: [AutocompletePage],
   imports: [BrowserModule, HttpModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot(),
   ],
   providers: [

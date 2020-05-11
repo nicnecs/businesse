@@ -3,10 +3,13 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { HTTP } from '@ionic-native/http/ngx';
-import { Platform, LoadingController } from '@ionic/angular';
+import { Platform, LoadingController, ModalController } from '@ionic/angular';
 import { finalize } from 'rxjs/operators';
 import { from } from 'rxjs';
 import { error } from 'util';
+
+import {NavController} from '@ionic/angular';
+import { AutocompletePage } from '../autocomplete/autocomplete.page';
 
 @Component({
   selector: 'app-home',
@@ -15,8 +18,19 @@ import { error } from 'util';
 })
 export class HomePage {
 
-  constructor(private http : Http, private nativeHttp : HTTP, private plt : Platform, private loadingCtrl : LoadingController) {
-    
+  address;
+
+  constructor(
+    private http : Http, 
+    private nativeHttp : HTTP, 
+    private plt : Platform, 
+    private loadingCtrl : LoadingController,
+    private navCtrl: NavController,
+    public modalController: ModalController
+    ) {
+      this.address = {
+        place: ''
+      };
   }
 
   link = "localhost:8080/businesse/getHomeData.php";
@@ -215,5 +229,19 @@ export class HomePage {
     this.category = name;
     this.getStandardData();
   }
+
+  async showAddressModal () {
+    let modal = await this.modalController.create({
+      component: AutocompletePage
+    });
+    let me = this;
+    // modal.onDidDismiss(data => {
+    //   this.address.place = data;
+    // });
+
+
+    await modal.present();
+  }
+
 
 }

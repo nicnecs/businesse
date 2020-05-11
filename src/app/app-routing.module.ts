@@ -62,6 +62,10 @@ const routes: Routes = [
     path: 'sponsoring',
     loadChildren: () => import('./sponsoring/sponsoring.module').then( m => m.SponsoringPageModule)
   },
+  {
+    path: 'autocomplete',
+    loadChildren: () => import('./autocomplete/autocomplete.module').then( m => m.AutocompletePageModule)
+  },
 
 
 
