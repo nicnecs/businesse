@@ -15,7 +15,7 @@ import { error } from 'util';
 })
 export class HomePage {
 
-  constructor(private http : HttpClient, private nativeHttp : HTTP, private plt : Platform, private loadingCtrl : LoadingController) {
+  constructor(private http : Http, private nativeHttp : HTTP, private plt : Platform, private loadingCtrl : LoadingController) {
     
   }
 
@@ -26,8 +26,8 @@ export class HomePage {
 
   toppings = "";
 
-  ionViewDidLoad(){
-   this.getData();
+  ionViewWillEnter(){
+    this.getStandardData();
   }
 
   async getStandardData(){
@@ -35,14 +35,19 @@ export class HomePage {
     let loading = await this.loadingCtrl.create();
     await loading.present();
 
-    this.http.get('http://businesse.eastus.cloudapp.azure.com:8080/businesse/getHomeData.php').pipe(
+    this.http.get('http://businesse.eastus.cloudapp.azure.com:8080/businesse/getHomeDataxampp.php').pipe(
       finalize(() => loading.dismiss())
     ).subscribe(data => {
-      this.json = data['_body'];
+      this.data = data['_body'];
+      console.log(this.data);
+      this.json = JSON.parse(data['_body']);
+      console.log(this.json);
+      
       console.log("On the Way");
       
-    }, success => {
-      console.log("SUCCESS");
+      
+    }, err => {
+      console.log("Error", err);
       // console.log('Call error: ', err);
     })
   }
@@ -71,7 +76,7 @@ export class HomePage {
   getData(){
     this.http.get('http://businesse.eastus.cloudapp.azure.com:8080/businesse/getHomeData.php').subscribe(data => 
     { 
-      this.json = data['_body'];
+      // this.json = data['_body'];
     }, success => {
       console.log("Success");
     }
@@ -144,63 +149,59 @@ export class HomePage {
 
   ]
 
-  json = [];
+  json: any[];
+
+  jason: any[];
 
 
   backupjson = 
   
   [
     {
-      "id" : 5,
+      "project_id" : 5,
       "name" : "Ein cooles Projekt",
       "category" : "Informatik",
       "company" : "TeaSausage24",
-      "img" : "./assets/project/1/workplace.png",
-      "filter" : "Neuste Einträge"
+      "img" : "./assets/project/1/workplace.png"
     },
     {
-      "id" : 29,
+      "project_id" : 29,
       "name" : "Super cooles Projekt",
       "category" : "Handwerk",
       "company" : "Microsoft",
-      "img" : "./assets/project/1/workplace.png",
-      "filter" : "Neuste Einträge"
+      "img" : "./assets/project/1/workplace.png"
     },
     {
-      "id" : 19000,
+      "project_id" : 19000,
       "name" : "Super Duper cooles Projekt",
       "category" : "Informatik",
       "company" : "Apppple",
       "img" : "./assets/project/1/workplace.png",
       "frist" : "17.02.2020",
-      "project-start" : "20.02.2020",
-      "filter" : "Standort"
+      "project-start" : "20.02.2020"
     },
     {
-      "id" : 5,
+      "project_id" : 5,
       "name" : "Ein cooles Projekt",
       "category" : "Gebäudereinigung",
       "company" : "TeaSausage24",
       "img" : "./assets/project/1/workplace.png"
-      , "filter" : "Bewertung"
     },
     {
-      "id" : 29,
+      "project_id" : 29,
       "name" : "Super cooles Projekt",
       "category" : "Handwerk",
       "img" : "./assets/project/1/workplace.png",
-      "company" : "Microsoft",
-      "filter" : "Bezahlung"
+      "company" : "Microsoft"
     },
     {
-      "id" : 19000,
+      "project_id" : 19000,
       "name" : "Super Duper cooles Projekt",
       "category" : "Rohbau",
       "company" : "Apppple",
       "img" : "./assets/project/1/workplace.png",
       "frist" : "17.02.2020",
-      "project-start" : "20.02.2020",
-      "filter" : "Bezahlung"
+      "project-start" : "20.02.2020"
     }
   ]
 
