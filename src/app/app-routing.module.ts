@@ -66,6 +66,14 @@ const routes: Routes = [
     path: 'autocomplete',
     loadChildren: () => import('./autocomplete/autocomplete.module').then( m => m.AutocompletePageModule)
   },
+  {
+    path: 'signup-partner',
+    loadChildren: () => import('./signup-partner/signup-partner.module').then( m => m.SignupPartnerPageModule)
+  },
+  {
+    path: 'signup-provider',
+    loadChildren: () => import('./signup-provider/signup-provider.module').then( m => m.SignupProviderPageModule)
+  },
 
 
 

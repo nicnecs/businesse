@@ -1,0 +1,40 @@
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="3"></ion-col>
+      <ion-col size="6">
+        <ion-card mode="ios" style="background-color: #77D12F;">
+          <ion-card-header>
+            <ion-card-subtitle></ion-card-subtitle>
+            <ion-card-title>Benötigte Daten zur Registrierung:</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            
+            <ion-grid>
+
+            </ion-grid>
+            <ion-list lines="none">
+              <ion-input [(ngModel)]="this.firstname" maxlength="15" mode="ios" type="text" placeholder="Vorname" style="background-color: white; border-radius: 0px;"></ion-input>
+              <ion-input [(ngModel)]="this.lastname" maxlength="15" mode="ios" type="text" placeholder="Nachname" style="background-color: white; border-radius: 0px;"></ion-input>
+              
+              <ion-input [(ngModel)]="this.email" maxlength="20" mode="ios" inputmode="mail" type="mail" placeholder="Email Adresse" style="background-color: white; border-radius: 0px;"></ion-input>
+              <ion-input [(ngModel)]="this.pass_one" mode="ios" inputmode="password" type="password" placeholder="Passwort" style="background-color: white; border-radius: 0px;"></ion-input>
+              <ion-input [(ngModel)]="this.pass_two" mode="ios" inputmode="password" type="password" placeholder="Passwort bestätigen  " style="background-color: white; border-radius: 0px;"></ion-input>
+              
+              <ion-input [(ngModel)]="this.address" maxlength="40" mode="ios" type="text" placeholder="Adresse" style="background-color: white; border-radius: 0px;"></ion-input>
+              <ion-input [(ngModel)]="this.phone" maxlength="15" mode="ios" type="text" placeholder="Telefonnummer" style="background-color: white; border-radius: 0px;"></ion-input>
+            </ion-list>
+
+            <ion-button color="dark" (click)="this.create()" expand="block" fill="clear" shape="round">
+              Erstellen
+            </ion-button>
+            <ion-label *ngIf="this.onSuccess == true" >Erfolg</ion-label>
+            <ion-label *ngIf="this.onSuccess == false && this.error == true" >Fehler</ion-label>
+            
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="3"></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

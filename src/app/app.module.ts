@@ -17,6 +17,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AutocompletePage} from './autocomplete/autocomplete.page';
 
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+
 @NgModule({
   declarations: [AppComponent, AutocompletePage],
   entryComponents: [AutocompletePage],
@@ -26,6 +29,7 @@ import { AutocompletePage} from './autocomplete/autocomplete.page';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    FileTransferObject,
     HTTP
   ],
   bootstrap: [AppComponent]
