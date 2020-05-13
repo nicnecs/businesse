@@ -5,6 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AlertController } from '@ionic/angular';
 import { timer } from 'rxjs';
+
+import { Http } from '@angular/http';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -17,7 +20,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    public alertctrl : AlertController
+    public alertctrl : AlertController,
+    public http : Http
   ) {
     this.initializeApp();
   }
@@ -59,9 +63,11 @@ export class AppComponent {
         }, {
           text: 'Login',
           handler: (res) => {
-            console.log(res.email);
-            this.login(res.email, res.password);
             
+            this.login(res.email, res.password);
+            if(this.no_Account == true || this.error == true){
+              return false;
+            }
           }
         }
       ]
@@ -70,10 +76,87 @@ export class AppComponent {
     
   }
 
-  logindata = "Email Pass"
+  email = "";
+  pass = "";
+  partner_response : number = 0;
+  provider_response : number = 0;
+  no_Account : boolean = false;
+  error : boolean = false;
+
+  id : number;
+  isPartner : boolean = false;
+  isProvider : boolean = false;
 
   login(email, pass){
-    this.logindata = email + " " + pass;
+    // this.id = null;
+    // this.isPartner = false;
+    // this.isProvider = false;
+    this.email = email;
+    this.pass = pass;
+    console.log("LoginData: ", email, ",", pass);
+
+    if(this.email.replace(/\s/g, "").length!=0 && this.pass.replace(/\s/g, "").length!=0){
+      var send = JSON.stringify({
+        email : this.email,
+        pass : this.pass
+      });
+
+      
+
+      this.http.post("http://businesse.eastus.cloudapp.azure.com:8080/businesse/LoginPartner.php", send)
+        .subscribe(data => {
+        var response = data['_body'];
+        this.partner_response = +response;
+        console.log("Partner Response: ", response);
+        console.log("Partner: ", this.partner_response);
+      });
+      
+      if(this.partner_response == 0 && this.partner_response == null){
+
+        this.http.post("http://businesse.eastus.cloudapp.azure.com:8080/businesse/LoginProvider.php", send)
+        .subscribe(data => {
+          var response = data['_body'];
+          this.provider_response = +response;
+          console.log("Provider Response: ", response);
+          console.log("Provider: ", this.provider_response);
+          
+        });
+
+        if(this.provider_response == 0 && this.provider_response == null){
+          this.no_Account == true;
+          return;
+        }else if(this.provider_response > 0){
+          this.id = this.provider_response;
+          this.isProvider = true;
+          this.isPartner = false;
+          this.setStorage();
+          return;
+        }
+        else{
+          this.error = true;
+          return;
+        }
+
+      }else if(this.partner_response > 0){
+        this.id = this.partner_response;
+        this.isPartner = true;
+        this.isProvider = false;
+        this.setStorage();
+        return;
+      }
+      else{
+        this.error = true;
+        return;
+      }
+
+    }
+
+    
+  }
+
+  setStorage(){
+    console.log("ID: ", this.id, ", Partner: ", this.isPartner, ", Provider: ", this.isProvider);
+    
   }
 
 }
