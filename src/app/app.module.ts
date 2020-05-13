@@ -20,6 +20,8 @@ import { AutocompletePage} from './autocomplete/autocomplete.page';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
 @NgModule({
   declarations: [AppComponent, AutocompletePage],
   entryComponents: [AutocompletePage],
@@ -27,6 +29,7 @@ import { File } from '@ionic-native/file';
   ],
   providers: [
     StatusBar,
+    Geolocation,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     FileTransferObject,

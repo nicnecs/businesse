@@ -74,6 +74,10 @@ const routes: Routes = [
     path: 'signup-provider',
     loadChildren: () => import('./signup-provider/signup-provider.module').then( m => m.SignupProviderPageModule)
   },
+  {
+    path: 'maps',
+    loadChildren: () => import('./maps/maps.module').then( m => m.MapsPageModule)
+  },
 
 
 
