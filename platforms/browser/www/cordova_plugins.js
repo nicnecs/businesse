@@ -381,6 +381,14 @@ module.exports = [
         "clobbers": [
             "window.FileTransfer"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-nativegeocoder/www/NativeGeocoder.js",
+        "id": "cordova-plugin-nativegeocoder.NativeGeocoder",
+        "pluginId": "cordova-plugin-nativegeocoder",
+        "clobbers": [
+            "nativegeocoder"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -395,7 +403,9 @@ module.exports.metadata =
     "cordova-plugin-file": "6.0.2",
     "cordova-plugin-advanced-http": "2.4.1",
     "cordova-plugin-file-transfer": "1.7.1",
-    "cordova-plugin-geolocation": "4.0.2"
+    "cordova-plugin-geolocation": "4.0.2",
+    "cordova-plugin-add-swift-support": "2.0.2",
+    "cordova-plugin-nativegeocoder": "3.4.1"
 }
 // BOTTOM OF METADATA
 });

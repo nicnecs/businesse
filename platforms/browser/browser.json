@@ -51,6 +51,12 @@
     },
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-nativegeocoder": {
+      "PACKAGE_NAME": "io.ionic.starter"
     }
   },
   "dependent_plugins": {},
@@ -436,6 +442,14 @@
       "clobbers": [
         "window.FileTransfer"
       ]
+    },
+    {
+      "file": "plugins/cordova-plugin-nativegeocoder/www/NativeGeocoder.js",
+      "id": "cordova-plugin-nativegeocoder.NativeGeocoder",
+      "pluginId": "cordova-plugin-nativegeocoder",
+      "clobbers": [
+        "nativegeocoder"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -448,6 +462,8 @@
     "cordova-plugin-file": "6.0.2",
     "cordova-plugin-advanced-http": "2.4.1",
     "cordova-plugin-file-transfer": "1.7.1",
-    "cordova-plugin-geolocation": "4.0.2"
+    "cordova-plugin-geolocation": "4.0.2",
+    "cordova-plugin-add-swift-support": "2.0.2",
+    "cordova-plugin-nativegeocoder": "3.4.1"
   }
 }

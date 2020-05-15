@@ -19,6 +19,7 @@ import { AutocompletePage} from './autocomplete/autocomplete.page';
 
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
+// import {NativeGeocoder} from '@ionic-native/native-geocoder';
 
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
@@ -28,6 +29,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
   imports: [BrowserModule, HttpModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot(),
   ],
   providers: [
+    
     StatusBar,
     Geolocation,
     SplashScreen,

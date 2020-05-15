@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild,ElementRef } from '@angular/core';
 import { Platform,NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Map, tileLayer, marker, icon } from 'leaflet';
 import { Http } from '@angular/http';
+import { map } from 'rxjs/operators';
 import leaflet from 'leaflet';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 @Component({
