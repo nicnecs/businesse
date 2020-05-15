@@ -30,6 +30,15 @@
       <ion-col>
         {{id}}
       </ion-col>
+      <ion-col *ngIf="this.account_id != null" >
+        Deine ID: {{this.account_id}}
+      </ion-col>
+      <ion-col *ngIf="this.isPartner == true" >
+        Sie sind Partner
+      </ion-col>
+      <ion-col *ngIf="this.isProvider == true" >
+        Sie sind Provider
+      </ion-col>
       <ion-col>
         <ion-button expand="block" fill="clear" shape="round">
           Click me
