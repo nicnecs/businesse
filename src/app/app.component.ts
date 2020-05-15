@@ -8,6 +8,9 @@ import { timer } from 'rxjs';
 
 import { Http } from '@angular/http';
 
+import { Storage } from '@ionic/storage';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -21,12 +24,15 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public alertctrl : AlertController,
-    public http : Http
+    public http : Http,
+    public storage : Storage
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
+    this.storage.ready().then(() => {
+    });
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
@@ -156,6 +162,10 @@ export class AppComponent {
 
   setStorage(){
     console.log("ID: ", this.id, ", Partner: ", this.isPartner, ", Provider: ", this.isProvider);
+    this.storage.set('id', this.id);
+    this.storage.set('isPartner', this.isPartner);
+    this.storage.set('isProvider', this.isProvider);
+
     
   }
 
