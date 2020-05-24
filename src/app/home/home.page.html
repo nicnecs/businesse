@@ -13,7 +13,7 @@
 
 
 
-<ion-content>
+<ion-content mode="ios">
 
   <!--Kategorie-Slider-->
   <ion-slides style="overflow-x: hidden; background-color: white;" mode="ios" pager="false" [options]="{slidesPerView: 'auto', zoom: false, grabCursor: false}">
@@ -44,30 +44,35 @@
     </ion-row> -->
 
     
-    <ion-row>
-      <ion-segment value="newest" color="secondary" mode="ios" (ionChange)="filterChanged($event)" style="width: 100%;">
-        <ion-segment-button value="location">
-          <ion-label>Standort</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="rate">
-          <ion-label>Bewertung</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="price">
-          <ion-label>Bezahlung</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="newest">
-          <ion-label>Neueste Einträge</ion-label>
-        </ion-segment-button>
-      </ion-segment>
-    </ion-row>
 
-    <ion-row style="align-content: center;">
-      <ion-list>
-        <ion-item>
-          <ion-input (click)="showAddressModal()" [(ngModel)]="address.place" type="text" placeholder="Location Filter"></ion-input>
-        </ion-item>
-      </ion-list>
-    </ion-row>
+      <ion-row>
+        <ion-segment value="newest" color="secondary" mode="ios" (ionChange)="filterChanged($event)" style="width: 100%;">
+          <ion-segment-button mode="ios" value="location">
+            <ion-label>Standort</ion-label>
+          </ion-segment-button>
+          <ion-segment-button mode="ios" value="rate">
+            <ion-label>Bewertung</ion-label>
+          </ion-segment-button>
+          <ion-segment-button mode="ios" value="price">
+            <ion-label>Bezahlung</ion-label>
+          </ion-segment-button>
+          <ion-segment-button mode="ios" value="newest">
+            <ion-label>Neueste Einträge</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-row>
+  
+      <!-- <ion-row style="align-content: center;">
+        <ion-list>
+          <ion-item>
+            <ion-input (click)="showAddressModal()" [(ngModel)]="address.place" type="text" placeholder="Location Filter"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-row> -->
+
+    
+    
+    
 
   <ion-grid>
     <ion-row style="background-color: rgb(236, 236, 236);">
