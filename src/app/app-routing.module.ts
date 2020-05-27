@@ -7,6 +7,10 @@ const routes: Routes = [
     path: '', 
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
+  { 
+    path: ':search', 
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
   {
     path: 'header',
     loadChildren: () => import('./header/header.module').then( m => m.HeaderPageModule)
@@ -46,7 +50,8 @@ const routes: Routes = [
   {
     path: 'header',
     loadChildren: () => import('./header/header.module').then( m => m.HeaderPageModule)
-  },  {
+  },
+  {
     path: 'impressum',
     loadChildren: () => import('./impressum/impressum.module').then( m => m.ImpressumPageModule)
   },

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
@@ -25,9 +26,11 @@ export class AppComponent {
     private statusBar: StatusBar,
     public alertctrl : AlertController,
     public http : Http,
-    public storage : Storage
+    public storage : Storage,
+    public router : Router,
   ) {
     this.initializeApp();
+    
   }
 
   initializeApp() {
@@ -81,6 +84,17 @@ export class AppComponent {
 
     
   }
+
+  searchvalue = "";
+
+  searching(evt){
+    this.searchvalue = evt.target.value;
+    this.searchvalue = this.searchvalue.replace(/\s/g, "+");
+    this.router.navigate(['/', this.searchvalue]);
+  }
+  
+
+
 
   email = "";
   pass = "";

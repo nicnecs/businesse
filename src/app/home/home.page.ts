@@ -10,6 +10,7 @@ import { error } from 'util';
 
 import {NavController} from '@ionic/angular';
 import { AutocompletePage } from '../autocomplete/autocomplete.page';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -26,8 +27,12 @@ export class HomePage {
     private plt : Platform, 
     private loadingCtrl : LoadingController,
     private navCtrl: NavController,
-    public modalController: ModalController
+    public modalController: ModalController,
+    private activatedRoute: ActivatedRoute,
     ) {
+      this.activatedRoute.params.subscribe((params: Params) => {
+        this.searchdata = params["search"];
+      });
       this.address = {
         place: ''
       };
@@ -37,11 +42,39 @@ export class HomePage {
 
   data = "Hallo";
 
+  searchdata;
 
   toppings = "";
 
   ionViewWillEnter(){
-    this.getStandardData();
+    if(this.searchdata!=""||this.searchdata!=null||this.searchdata.replace("+", "").lenght>2){
+      this.searchdata = this.searchdata.replace("+", "%");
+      this.getSearchData();
+    }
+    else{
+      this.getStandardData();
+    }
+    
+  }
+
+  async getSearchData(){
+
+    var send=[
+      {
+        "searchdata" : this.searchdata
+      }
+    ]
+
+    this.http.post("http://businesse.eastus.cloudapp.azure.com:8080/businesse/getSearchData.php", send)
+        .subscribe(data => {
+        this.data = data['_body'];
+        console.log(this.data);
+        this.json = JSON.parse(data['_body']);
+        console.log(this.json);
+      }, err => {
+        console.log("Error", err);
+        // console.log('Call error: ', err);
+      });
   }
 
   async getStandardData(){

@@ -28,7 +28,7 @@
   
   
   
-    <ion-searchbar placeholder="Als Anonym" color="light" class="searchbar-input-container" mode="ios" style="color: black;"> </ion-searchbar>
+    <ion-searchbar (keyup.enter)="searching($event)"  placeholder="Als Anonym" color="light" class="searchbar-input-container" mode="ios" style="color: black;"> </ion-searchbar>
   
     <ion-button color="secondary" style="height: 50%; width: fit-content;" (click)="loginAlert()" >Login</ion-button>
 
