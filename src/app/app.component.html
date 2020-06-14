@@ -14,7 +14,7 @@
 <!-- Nicht Eingeloggt Header -->
   <ion-header slot="secondary" class="header" >
     
-    <ion-item class="header-item" >
+    <ion-item *ngIf="!this.isProvider"  class="header-item" >
 
       <ion-button color="secondary" [routerLink]="['']" style="height: 50%;" >
         Home
@@ -24,19 +24,57 @@
         <ion-icon name="business"></ion-icon>
       </ion-button>
   
-      
-  
-  
-  
     <ion-searchbar (keyup.enter)="searching($event)"  placeholder="Als Anonym" color="light" class="searchbar-input-container" mode="ios" style="color: black;"> </ion-searchbar>
   
     <ion-button color="secondary" style="height: 50%; width: fit-content;" (click)="loginAlert()" >Login</ion-button>
 
     <ion-button slot="end" color="secondary" style="height: 50%; width: fit-content;" [routerLink]="['/signup']">Registrieren</ion-button>
     
-
     </ion-item>
+
+
+
+    <!-- Als Provider -->
+    <ion-grid *ngIf="this.isProvider"  no-padding mode="ios" class="header-item" style="background-color: #77D12F">
+      <ion-row>
+        <ion-col size-lg="2.4" size-md="0" size-xs="12">
+          <!-- <ion-item button fill="clear" [routerLink]="['']" > -->
+            <ion-img mode="ios" [src]="'/assets/plugged_businesse.png'" [routerLink]="['']" style="height: 90%;"></ion-img>
+          <!-- </ion-item> -->
+        </ion-col>
+        <ion-col size-lg="7.5" size-md="12" size-xs="12">
+          <ion-searchbar (keyup.enter)="searching($event)"  placeholder="Als Anonym" color="light" class="searchbar-input-container" mode="ios" style="color: black;"> </ion-searchbar>
+        </ion-col>
+        <ion-col size-lg="0" size-md="4" size-xs="0">
+          <!-- <ion-item button fill="clear" [routerLink]="['']" > -->
+            <ion-img mode="ios" [src]="'/assets/plugged_businesse.png'" [routerLink]="['']" style="height: 90%;"></ion-img>
+          <!-- </ion-item> -->
+        </ion-col>
+        <ion-col size-lg="0.7" >
+          <ion-button expand="block" mode="ios" [routerLink]="['/create']"  color="secondary">
+            <ion-icon name="add-circle"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size-lg="0.7" >
+          <ion-button expand="block" mode="ios" [routerLink]="['/projects-overview-co']"  color="secondary">
+            <ion-icon name="business"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size-lg="0.6" size-md="0.9">
+          <ion-button expand="block" mode="ios" color="danger" (click)="logoutAlert()">
+            <ion-icon slot="icon-only" name="log-out"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+
   </ion-header>
+
+
+
+  
 
   
   <body class="router">

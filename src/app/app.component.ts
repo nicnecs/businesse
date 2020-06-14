@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, LoadingController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AlertController } from '@ionic/angular';
@@ -10,6 +10,7 @@ import { timer } from 'rxjs';
 import { Http } from '@angular/http';
 
 import { Storage } from '@ionic/storage';
+import { finalize } from 'rxjs/operators';
 
 
 @Component({
@@ -27,6 +28,7 @@ export class AppComponent {
     public alertctrl : AlertController,
     public http : Http,
     public storage : Storage,
+    private loadingCtrl : LoadingController,
     public router : Router,
   ) {
     this.initializeApp();
@@ -40,6 +42,19 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       timer(5000).subscribe(()=> this.showSplash = false)
+    });
+    this.storage.get('id').then((id) => {
+      this.id = id;
+    });
+    this.storage.get('isPartner').then((state) => {
+      this.isPartner = state;
+      console.log(this.isPartner);
+      
+    });
+    this.storage.get('isProvider').then((state) => {
+       this.isProvider = state;
+       console.log(this.isProvider);
+       
     });
   }
 
@@ -74,7 +89,7 @@ export class AppComponent {
           handler: (res) => {
             
             this.login(res.email, res.password);
-            if(this.no_Account == true || this.error == true){
+            if(this.no_Account && this.error){
               return false;
             }
           }
@@ -90,7 +105,7 @@ export class AppComponent {
   searching(evt){
     this.searchvalue = evt.target.value;
     this.searchvalue = this.searchvalue.replace(/\s/g, "+");
-    this.router.navigate(['/', this.searchvalue]);
+    this.router.navigate(['/search', this.searchvalue]);
   }
   
 
@@ -98,8 +113,9 @@ export class AppComponent {
 
   email = "";
   pass = "";
-  partner_response : number = 0;
-  provider_response : number = 0;
+  send;
+  partner_response : number;
+  provider_response : number;
   no_Account : boolean = false;
   error : boolean = false;
 
@@ -107,7 +123,10 @@ export class AppComponent {
   isPartner : boolean = false;
   isProvider : boolean = false;
 
-  login(email, pass){
+  
+
+
+  async login(email, pass){
     // this.id = null;
     // this.isPartner = false;
     // this.isProvider = false;
@@ -116,62 +135,78 @@ export class AppComponent {
     console.log("LoginData: ", email, ",", pass);
 
     if(this.email.replace(/\s/g, "").length!=0 && this.pass.replace(/\s/g, "").length!=0){
-      var send = JSON.stringify({
+      this.send = JSON.stringify({
         email : this.email,
         pass : this.pass
       });
 
       
-
-      this.http.post("http://businesse.eastus.cloudapp.azure.com:8080/businesse/LoginPartner.php", send)
-        .subscribe(data => {
+      let loading = await this.loadingCtrl.create();
+      await loading.present();
+      this.http.post("http://businesse.eastus.cloudapp.azure.com:8080/businesse/LoginPartner.php", this.send).pipe(
+        finalize(() => loading.dismiss())
+      ).subscribe(data => {
         var response = data['_body'];
-        this.partner_response = +response;
+        var id = +response;
         console.log("Partner Response: ", response);
         console.log("Partner: ", this.partner_response);
+        this.checkPartner(id);
+      });
+    }
+  }
+
+  async checkPartner(id){
+    if(id==0){
+
+      console.log("no partner");
+
+      let loading = await this.loadingCtrl.create();
+      await loading.present();
+
+      this.http.post("http://businesse.eastus.cloudapp.azure.com:8080/businesse/LoginProvider.php", this.send).pipe(
+        finalize(() => loading.dismiss())
+      ).subscribe(data => {
+        var response = data['_body'];
+        var prov_id = +response;
+        console.log("Provider Response: ", response);
+        console.log("Provider: ", this.provider_response);
+
+        this.checkProvider(prov_id);
       });
       
-      if(this.partner_response == 0 && this.partner_response == null){
-
-        this.http.post("http://businesse.eastus.cloudapp.azure.com:8080/businesse/LoginProvider.php", send)
-        .subscribe(data => {
-          var response = data['_body'];
-          this.provider_response = +response;
-          console.log("Provider Response: ", response);
-          console.log("Provider: ", this.provider_response);
-          
-        });
-
-        if(this.provider_response == 0 && this.provider_response == null){
-          this.no_Account == true;
-          return;
-        }else if(this.provider_response > 0){
-          this.id = this.provider_response;
-          this.isProvider = true;
-          this.isPartner = false;
-          this.setStorage();
-          return;
-        }
-        else{
-          this.error = true;
-          return;
-        }
-
-      }else if(this.partner_response > 0){
-        this.id = this.partner_response;
-        this.isPartner = true;
-        this.isProvider = false;
-        this.setStorage();
-        return;
-      }
-      else{
-        this.error = true;
-        return;
-      }
-
     }
+    if(id>0){
+      this.id = id;
+      this.isPartner = true;
+      this.isProvider = false;
+      this.setStorage();
+    }
+    else{
+      console.log("Error");
+      this.error = true;
+    }
+  }
 
-    
+
+  checkProvider(id){
+    if(id==0){
+      console.log("no account");
+      this.no_Account == true;
+    }
+    if(id>0){
+      console.log("Provider");
+          
+      this.id = id;
+      this.isProvider = true;
+      this.isPartner = false;
+      this.error = false;
+      this.no_Account = false;
+      this.setStorage();
+    }
+    else{
+      console.log("Error Provider");
+      this.error = true;
+    }
   }
 
   setStorage(){
@@ -179,8 +214,47 @@ export class AppComponent {
     this.storage.set('id', this.id);
     this.storage.set('isPartner', this.isPartner);
     this.storage.set('isProvider', this.isProvider);
+  }
 
-    
+
+
+
+  async logoutAlert(){
+    await this.alertctrl.create({
+    header: 'Logout?',
+    animated: true,
+    backdropDismiss: true,
+    mode: 'md',
+    buttons: [
+      {
+        text: 'Abbruch',
+        role: 'cancel',
+        cssClass: 'Primary',
+        handler: () => {
+          console.log('Confirm Cancel');
+        }
+      }, {
+        text: 'Logout',
+        handler: (res) => {
+          this.logout();
+        }
+      }
+    ]
+  }).then(res => res.present());
+
+  
+}
+
+
+
+
+
+  logout(){
+    console.log("LogOut");
+    this.id = 0;
+    this.isPartner = false;
+    this.isProvider = false;
+    this.setStorage();
   }
 
 }

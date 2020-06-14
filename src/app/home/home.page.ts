@@ -10,7 +10,7 @@ import { error } from 'util';
 
 import {NavController} from '@ionic/angular';
 import { AutocompletePage } from '../autocomplete/autocomplete.page';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -28,6 +28,7 @@ export class HomePage {
     private loadingCtrl : LoadingController,
     private navCtrl: NavController,
     public modalController: ModalController,
+    public router : Router,
     private activatedRoute: ActivatedRoute,
     ) {
       this.activatedRoute.params.subscribe((params: Params) => {
@@ -42,17 +43,23 @@ export class HomePage {
 
   data = "Hallo";
 
-  searchdata;
+  searchdata : string = "";
 
   toppings = "";
 
   ionViewWillEnter(){
-    if(this.searchdata!=""||this.searchdata!=null||this.searchdata.replace("+", "").lenght>2){
-      this.searchdata = this.searchdata.replace("+", "%");
-      this.getSearchData();
-    }
-    else{
-      this.getStandardData();
+    // if(this.searchdata!=""||this.searchdata!=null||this.searchdata.replace("+", "").length>2){
+    //   console.log("Check 1");
+    //   //this.searchdata = this.searchdata.replace("+", " ");
+    //   console.log("Check 2");
+    //   this.getSearchData();
+    // }
+    // else{
+    //   this.getStandardData();
+    // }
+
+    if(this.searchdata == "Hallo"){
+      this.router.navigate(['/project']);
     }
     
   }

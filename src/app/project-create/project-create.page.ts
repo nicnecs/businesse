@@ -11,6 +11,33 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./project-create.page.scss'],
 })
 export class ProjectCreatePage {
+
+  sponsors_set = [
+    {
+      id : "1",
+      title : "Startseite",
+      description : "Ihr Projekt wird zu oberster Stelle über anderen Projekten auf der Startseite angezeigt, wenn keine Filterfunktion benutzt wird.",
+      price_per_day : "0.84"
+    }
+  ]
+
+  sponsor = 0;
+  single_price : number = null;
+  duration_sponsor : number = null;
+
+  current: string = new Date().toISOString();
+
+  clickCheck(){
+    this.sponsored = !this.sponsored;
+  }
+
+  clickPrice(price){
+    this.single_price = +price;
+    if(this.sponsor < 1){
+      this.single_price = null;
+    }
+  }
+
   createProject: CreateProjectOptions = {
     title: '',
     company: '',
@@ -24,6 +51,8 @@ export class ProjectCreatePage {
     number_participants: null
   };
   submitted = false;
+  sponsored : boolean = false;
+  spnsor_id;
 
   constructor(
       public router: Router,

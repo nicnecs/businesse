@@ -4,11 +4,25 @@
   </ion-toolbar>
 </ion-header> -->
 
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-searchbar [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Search for a place"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
+
+  <ion-list [hidden]="autocompleteItems.length == 0">
+    <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+      {{ item.description }}
+    </ion-item>
+  </ion-list>
   
-    <button class="location" ion-button (click)="location()"><ion-icon name="locate"></ion-icon></button> 
+    <!-- <button class="location" ion-button (click)="location()"><ion-icon name="locate"></ion-icon></button> 
   
-    <div id="map" style="width:100%; height:100%;"></div>
+    <div id="map" style="width:100%; height:100%;"></div> -->
+
+    <div id='map' style="height: 100%;"></div>
   
   
 </ion-content>

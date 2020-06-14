@@ -8,7 +8,7 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   { 
-    path: ':search', 
+    path: 'search/:search', 
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./project/project.module').then( m => m.ProjectPageModule)
   },
   {
-    path: 'project-create',
+    path: 'create',
     loadChildren: () => import('./project-create/project-create.module').then( m => m.ProjectCreatePageModule)
   },
   {

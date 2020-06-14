@@ -1,6 +1,20 @@
 <ion-content>
+  <ion-grid >
+    <ion-row>
+      <ion-col size="2"></ion-col>
+      <ion-col size="8">
+        <ion-card mode="ios" style="background-color: #77D12F;">
+          <ion-card-header>
+            <ion-card-subtitle></ion-card-subtitle>
+            <ion-card-title>Benötigte Daten zur Erstellung eines neuen Projektes:</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            
+            <ion-grid>
+
+            </ion-grid>
   <form #createProjectform="ngForm" novalidate>
-  <ion-list lines>
+  <!-- <ion-list> -->
     <ion-item>
       <ion-label position="stacked" color="primary">Projekttitel*</ion-label>
       <ion-input [(ngModel)]="createProject.title" name="title" type="text" #title="ngModel" required></ion-input>
@@ -12,16 +26,6 @@
       </p>
     </ion-text>
 
-    <ion-item>
-      <ion-label position="stacked" color="primary">Betrieb*</ion-label>
-      <ion-input [(ngModel)]="createProject.company" name="company" #company="ngModel" type="text" required></ion-input>
-    </ion-item>
-    <ion-text color="danger">
-
-    </ion-text>
-    <p [hidden]="company.valid || submitted == false" class="ion-padding-start">
-      Company is required
-    </p>
     <ion-item>
       <ion-label position="stacked" color="primary">Projektbeschreibung*</ion-label>
       <ion-input [(ngModel)]="createProject.description" name="description" #description="ngModel" type="text" required></ion-input>
@@ -59,6 +63,7 @@
       <ion-label position="stacked" color="primary">Anmeldefrist*</ion-label>
       <ion-input [(ngModel)]="createProject.registration_period" name="registration-period" #registration_period="ngModel" type="date" required></ion-input>
     </ion-item>
+    
 
     <ion-text color="danger">
       <p [hidden]="registration_period.valid || submitted == false" class="ion-padding-start">
@@ -91,30 +96,96 @@
       <ion-label position="stacked" color="primary">Anzahl der gesuchten Auftragnehmer</ion-label>
       <ion-input [(ngModel)]="createProject.number_participants" name="number-participants" #number_participants="ngModel" type="number"></ion-input>
     </ion-item>
-  </ion-list>
+  <!-- </ion-list> -->
+
+  
+  </form>
+
+  <ion-item style="background-color: #77D12F;">
+    <ion-label>Sponsoring</ion-label>
+    <ion-checkbox slot="end" (click)="this.clickCheck()"></ion-checkbox>
+  </ion-item>
+    
+
+  <ion-label></ion-label>
+  <ion-label></ion-label>
+
+      <ion-radio-group mode="ios" *ngIf="this.sponsored" [(ngModel)]="this.sponsor">
+        <ion-list-header>
+          <ion-label>Sponsoren-Art Auswählen</ion-label>
+        </ion-list-header>
+    
+        <ion-item *ngFor="let radio of this.sponsors_set" style="background: #77D12F; border-radius: 8px;" >
+          <ion-grid>
+            <ion-row>
+              <ion-col size="9">
+                {{radio.title}}
+              </ion-col>
+              <ion-col size="3">
+                <ion-label>Preis pro Tag: </ion-label>{{radio.price_per_day}}€
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="12">
+                <ion-label text-wrap>{{radio.description}}</ion-label>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          
+          <ion-radio slot="end" value="{{radio.id}}" (click)="this.clickPrice(radio.price_per_day)"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+
+      <ion-grid fixed *ngIf="this.sponsored" >
+        <ion-row>
+          <ion-col size="6"></ion-col>
+          <ion-col size="3">
+            Grundpreis: 
+          </ion-col>
+          <ion-col size="3">
+            {{this.single_price}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6"></ion-col>
+          <ion-col size="3" style="height: max-content;">
+            Dauer eingeben: 
+          </ion-col>
+          <ion-col size="3">
+
+            <ion-row>
+              <ion-col size="6">
+                <ion-input type="number" maxlength="1" [(ngModel)]="this.duration_sponsor"></ion-input>
+              </ion-col>
+              <ion-col size="6">
+                <ion-label *ngIf="this.duration_sponsor==1" >Tag</ion-label>
+                <ion-label *ngIf="this.duration_sponsor>1" >Tage</ion-label>
+              </ion-col>
+            </ion-row>
+
+            <ion-label>________________________</ion-label>
+            <ion-label>{{this.single_price * this.duration_sponsor}}</ion-label>
+            
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      
+
 
   <div class="ion-padding">
-    <ion-button (click)="onCreateProject(createProjectform)" type="submit" expand="block">Create</ion-button>
+    <ion-button (click)="onCreateProject(createProjectform)" color="secondary" type="submit" expand="block">Create</ion-button>
   </div>
-  </form>
-</ion-content>
 
-<ion-footer>
-  <ion-toolbar>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-button href="#" color="dark">
-            <ion-icon name="help"></ion-icon>
-          </ion-button>
-          <ion-button href="#" color="dark">
-            <ion-icon name="settings"></ion-icon>
-          </ion-button>
-          <ion-button href="#" color="dark">
-            <ion-icon name="wallet"></ion-icon>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
-</ion-footer>
+
+
+
+
+</ion-card-content>
+</ion-card>
+</ion-col>
+<ion-col size="2"></ion-col>
+</ion-row>
+</ion-grid>
+</ion-content>
