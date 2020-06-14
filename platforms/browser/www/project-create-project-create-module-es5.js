@@ -1,3 +1,9 @@
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["project-create-project-create-module"], {
   /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/project-create/project-create.page.html":
@@ -15,7 +21,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-grid>\n      <ion-row>\n        <ion-col>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"globe\"></ion-icon>\n          </ion-button>\n          <ion-button href=\"/project-menu\" color=\"dark\">\n            <ion-icon name=\"book\"></ion-icon>\n          </ion-button>\n        </ion-col>\n        <ion-col>\n          <ion-button color=\"dark\" href=\"home\">\n            <img src=\"/assets/BusinessELogoByNamelix.png\"/>\n          </ion-button>\n        </ion-col>\n        <ion-col>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"log-in\"></ion-icon>\n          </ion-button>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"person\"></ion-icon>\n          </ion-button>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col>\n          <ion-searchbar></ion-searchbar>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-toolbar>\n</ion-header>\n<ion-header padding>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title> Erstellen Sie hier ihr Projekt</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <form #createProjectform=\"ngForm\" novalidate>\n  <ion-list lines>\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Projekttitel*</ion-label>\n      <ion-input [(ngModel)]=\"createProject.title\" name=\"title\" type=\"text\" #title=\"ngModel\" required></ion-input>\n    </ion-item>\n\n    <ion-text color=\"danger\">\n      <p [hidden]=\"title.valid || submitted == false\" class=\"ion-padding-start\">\n        Title is required\n      </p>\n    </ion-text>\n\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Betrieb*</ion-label>\n      <ion-input [(ngModel)]=\"createProject.company\" name=\"company\" #company=\"ngModel\" type=\"text\" required></ion-input>\n    </ion-item>\n    <ion-text color=\"danger\">\n\n    </ion-text>\n    <p [hidden]=\"company.valid || submitted == false\" class=\"ion-padding-start\">\n      Company is required\n    </p>\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Projektbeschreibung*</ion-label>\n      <ion-input [(ngModel)]=\"createProject.description\" name=\"description\" #description=\"ngModel\" type=\"text\" required></ion-input>\n    </ion-item>\n\n    <ion-text color=\"danger\">\n      <p [hidden]=\"description.valid || submitted == false\" class=\"ion-padding-start\">\n        Description is required\n      </p>\n    </ion-text>\n\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Projektstart*</ion-label>\n      <ion-input [(ngModel)]=\"createProject.project_start\" name=\"project-start\" #project_start=\"ngModel\" type=\"date\" required></ion-input>\n    </ion-item>\n\n    <ion-text color=\"danger\">\n      <p [hidden]=\"project_start.valid || submitted == false\" class=\"ion-padding-start\">\n        Project start is required\n      </p>\n    </ion-text>\n\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Voraussichtliches Projektende*</ion-label>\n      <ion-input [(ngModel)]=\"createProject.project_end\" name=\"project-end\" #project_end=\"ngModel\" type=\"date\" required></ion-input>\n    </ion-item>\n\n    <ion-text color=\"danger\">\n      <p [hidden]=\"project_end.valid || submitted == false\" class=\"ion-padding-start\">\n        Description is required\n      </p>\n    </ion-text>\n\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Anmeldefrist*</ion-label>\n      <ion-input [(ngModel)]=\"createProject.registration_period\" name=\"registration-period\" #registration_period=\"ngModel\" type=\"date\" required></ion-input>\n    </ion-item>\n\n    <ion-text color=\"danger\">\n      <p [hidden]=\"registration_period.valid || submitted == false\" class=\"ion-padding-start\">\n        Registration period is required\n      </p>\n    </ion-text>\n\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Adresse*</ion-label>\n      <ion-input [(ngModel)]=\"createProject.address\" name=\"address\" #adress=\"ngModel\" type=\"text\" required></ion-input>\n    </ion-item>\n\n    <ion-text color=\"danger\">\n      <p [hidden]=\"adress.valid || submitted == false\" class=\"ion-padding-start\">\n        Adress period is required\n      </p>\n    </ion-text>\n\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Kommentar zur Adresse</ion-label>\n      <ion-input [(ngModel)]=\"createProject.address_comment\" name=\"address-comment\" #address_comment=\"ngModel\" type=\"text\"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Entlohnung</ion-label>\n      <ion-input [(ngModel)]=\"createProject.payment\" name=\"payment\" type=\"number\" #payment=\"ngModel\" required></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Anzahl der gesuchten Auftragnehmer</ion-label>\n      <ion-input [(ngModel)]=\"createProject.number_participants\" name=\"number-participants\" #number_participants=\"ngModel\" type=\"number\"></ion-input>\n    </ion-item>\n  </ion-list>\n\n  <div class=\"ion-padding\">\n    <ion-button (click)=\"onCreateProject(createProjectform)\" type=\"submit\" expand=\"block\">Create</ion-button>\n  </div>\n  </form>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>\n    <ion-grid>\n      <ion-row>\n        <ion-col>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"help\"></ion-icon>\n          </ion-button>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"settings\"></ion-icon>\n          </ion-button>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"wallet\"></ion-icon>\n          </ion-button>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-toolbar>\n</ion-footer>\n";
+    __webpack_exports__["default"] = "<ion-content>\n  <form #createProjectform=\"ngForm\" novalidate>\n  <ion-list lines>\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Projekttitel*</ion-label>\n      <ion-input [(ngModel)]=\"createProject.title\" name=\"title\" type=\"text\" #title=\"ngModel\" required></ion-input>\n    </ion-item>\n\n    <ion-text color=\"danger\">\n      <p [hidden]=\"title.valid || submitted == false\" class=\"ion-padding-start\">\n        Title is required\n      </p>\n    </ion-text>\n\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Betrieb*</ion-label>\n      <ion-input [(ngModel)]=\"createProject.company\" name=\"company\" #company=\"ngModel\" type=\"text\" required></ion-input>\n    </ion-item>\n    <ion-text color=\"danger\">\n\n    </ion-text>\n    <p [hidden]=\"company.valid || submitted == false\" class=\"ion-padding-start\">\n      Company is required\n    </p>\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Projektbeschreibung*</ion-label>\n      <ion-input [(ngModel)]=\"createProject.description\" name=\"description\" #description=\"ngModel\" type=\"text\" required></ion-input>\n    </ion-item>\n\n    <ion-text color=\"danger\">\n      <p [hidden]=\"description.valid || submitted == false\" class=\"ion-padding-start\">\n        Description is required\n      </p>\n    </ion-text>\n\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Projektstart*</ion-label>\n      <ion-input [(ngModel)]=\"createProject.project_start\" name=\"project-start\" #project_start=\"ngModel\" type=\"date\" required></ion-input>\n    </ion-item>\n\n    <ion-text color=\"danger\">\n      <p [hidden]=\"project_start.valid || submitted == false\" class=\"ion-padding-start\">\n        Project start is required\n      </p>\n    </ion-text>\n\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Voraussichtliches Projektende*</ion-label>\n      <ion-input [(ngModel)]=\"createProject.project_end\" name=\"project-end\" #project_end=\"ngModel\" type=\"date\" required></ion-input>\n    </ion-item>\n\n    <ion-text color=\"danger\">\n      <p [hidden]=\"project_end.valid || submitted == false\" class=\"ion-padding-start\">\n        Description is required\n      </p>\n    </ion-text>\n\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Anmeldefrist*</ion-label>\n      <ion-input [(ngModel)]=\"createProject.registration_period\" name=\"registration-period\" #registration_period=\"ngModel\" type=\"date\" required></ion-input>\n    </ion-item>\n\n    <ion-text color=\"danger\">\n      <p [hidden]=\"registration_period.valid || submitted == false\" class=\"ion-padding-start\">\n        Registration period is required\n      </p>\n    </ion-text>\n\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Adresse*</ion-label>\n      <ion-input [(ngModel)]=\"createProject.address\" name=\"address\" #adress=\"ngModel\" type=\"text\" required></ion-input>\n    </ion-item>\n\n    <ion-text color=\"danger\">\n      <p [hidden]=\"adress.valid || submitted == false\" class=\"ion-padding-start\">\n        Adress period is required\n      </p>\n    </ion-text>\n\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Kommentar zur Adresse</ion-label>\n      <ion-input [(ngModel)]=\"createProject.address_comment\" name=\"address-comment\" #address_comment=\"ngModel\" type=\"text\"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Entlohnung</ion-label>\n      <ion-input [(ngModel)]=\"createProject.payment\" name=\"payment\" type=\"number\" #payment=\"ngModel\" required></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label position=\"stacked\" color=\"primary\">Anzahl der gesuchten Auftragnehmer</ion-label>\n      <ion-input [(ngModel)]=\"createProject.number_participants\" name=\"number-participants\" #number_participants=\"ngModel\" type=\"number\"></ion-input>\n    </ion-item>\n  </ion-list>\n\n  <div class=\"ion-padding\">\n    <ion-button (click)=\"onCreateProject(createProjectform)\" type=\"submit\" expand=\"block\">Create</ion-button>\n  </div>\n  </form>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>\n    <ion-grid>\n      <ion-row>\n        <ion-col>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"help\"></ion-icon>\n          </ion-button>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"settings\"></ion-icon>\n          </ion-button>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"wallet\"></ion-icon>\n          </ion-button>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-toolbar>\n</ion-footer>\n";
     /***/
   },
 
@@ -63,11 +69,15 @@
     /*! ./project-create.page */
     "./src/app/project-create/project-create.page.ts");
 
-    const routes = [{
+    var routes = [{
       path: '',
       component: _project_create_page__WEBPACK_IMPORTED_MODULE_3__["ProjectCreatePage"]
     }];
-    let ProjectCreatePageRoutingModule = class ProjectCreatePageRoutingModule {};
+
+    var ProjectCreatePageRoutingModule = function ProjectCreatePageRoutingModule() {
+      _classCallCheck(this, ProjectCreatePageRoutingModule);
+    };
+
     ProjectCreatePageRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
@@ -137,7 +147,10 @@
     /*! ./project-create.page */
     "./src/app/project-create/project-create.page.ts");
 
-    let ProjectCreatePageModule = class ProjectCreatePageModule {};
+    var ProjectCreatePageModule = function ProjectCreatePageModule() {
+      _classCallCheck(this, ProjectCreatePageModule);
+    };
+
     ProjectCreatePageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _project_create_routing_module__WEBPACK_IMPORTED_MODULE_5__["ProjectCreatePageRoutingModule"]],
       declarations: [_project_create_page__WEBPACK_IMPORTED_MODULE_6__["ProjectCreatePage"]]
@@ -209,8 +222,10 @@
     /*! ../providers/project-data */
     "./src/app/providers/project-data.ts");
 
-    let ProjectCreatePage = class ProjectCreatePage {
-      constructor(router, projectData) {
+    var ProjectCreatePage = /*#__PURE__*/function () {
+      function ProjectCreatePage(router, projectData) {
+        _classCallCheck(this, ProjectCreatePage);
+
         this.router = router;
         this.projectData = projectData;
         this.createProject = {
@@ -228,33 +243,39 @@
         this.submitted = false;
       }
 
-      onCreateProject(form) {
-        this.submitted = true;
+      _createClass(ProjectCreatePage, [{
+        key: "onCreateProject",
+        value: function onCreateProject(form) {
+          this.submitted = true;
 
-        if (form.valid) {
-          this.projectData.createProject(this.createProject.title);
-          /**
-           * todo navigateByURL
-           */
+          if (form.valid) {
+            this.projectData.createProject(this.createProject.title);
+            /**
+             * todo navigateByURL
+             */
+          }
         }
-      }
+      }]);
 
+      return ProjectCreatePage;
+    }();
+
+    ProjectCreatePage.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _providers_project_data__WEBPACK_IMPORTED_MODULE_3__["ProjectData"]
+      }];
     };
-
-    ProjectCreatePage.ctorParameters = () => [{
-      type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-    }, {
-      type: _providers_project_data__WEBPACK_IMPORTED_MODULE_3__["ProjectData"]
-    }];
 
     ProjectCreatePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-project-create',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! raw-loader!./project-create.page.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/project-create/project-create.page.html")).default,
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/project-create/project-create.page.html"))["default"],
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./project-create.page.scss */
-      "./src/app/project-create/project-create.page.scss")).default]
+      "./src/app/project-create/project-create.page.scss"))["default"]]
     }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _providers_project_data__WEBPACK_IMPORTED_MODULE_3__["ProjectData"]])], ProjectCreatePage);
     /***/
   },
@@ -297,34 +318,47 @@
     /*! @ionic/storage */
     "./node_modules/@ionic/storage/fesm2015/ionic-storage.js");
 
-    let ProjectData = class ProjectData {
-      constructor(storage) {
+    var ProjectData = /*#__PURE__*/function () {
+      function ProjectData(storage) {
+        _classCallCheck(this, ProjectData);
+
         this.storage = storage;
         this.IS_CREATED = 'isCreated';
       }
 
-      createProject(title) {
-        return this.storage.set(this.IS_CREATED, true).then(() => {
-          this.setTitle(title);
-          return window.dispatchEvent(new CustomEvent('project:create'));
-        });
-      }
+      _createClass(ProjectData, [{
+        key: "createProject",
+        value: function createProject(title) {
+          var _this = this;
 
-      setTitle(title) {
-        return this.storage.set('username', title);
-      }
+          return this.storage.set(this.IS_CREATED, true).then(function () {
+            _this.setTitle(title);
 
-      getTitle() {
-        return this.storage.get('title').then(value => {
-          return value;
-        });
-      }
+            return window.dispatchEvent(new CustomEvent('project:create'));
+          });
+        }
+      }, {
+        key: "setTitle",
+        value: function setTitle(title) {
+          return this.storage.set('username', title);
+        }
+      }, {
+        key: "getTitle",
+        value: function getTitle() {
+          return this.storage.get('title').then(function (value) {
+            return value;
+          });
+        }
+      }]);
 
+      return ProjectData;
+    }();
+
+    ProjectData.ctorParameters = function () {
+      return [{
+        type: _ionic_storage__WEBPACK_IMPORTED_MODULE_2__["Storage"]
+      }];
     };
-
-    ProjectData.ctorParameters = () => [{
-      type: _ionic_storage__WEBPACK_IMPORTED_MODULE_2__["Storage"]
-    }];
 
     ProjectData = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
       providedIn: 'root'

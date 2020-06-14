@@ -1,3 +1,9 @@
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["signup-signup-module"], {
   /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/signup/signup.page.html":
@@ -15,7 +21,122 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-grid>\n      <ion-row>\n        <ion-col>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"globe\"></ion-icon>\n          </ion-button>\n          <ion-button href=\"/project-menu\" color=\"dark\">\n            <ion-icon name=\"book\"></ion-icon>\n          </ion-button>\n        </ion-col>\n        <ion-col>\n          <ion-button color=\"dark\" href=\"home\">\n            <img src=\"/assets/BusinessELogoByNamelix.png\"/>\n          </ion-button>\n        </ion-col>\n        <ion-col>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"log-in\"></ion-icon>\n          </ion-button>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"person\"></ion-icon>\n          </ion-button>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col>\n          <ion-searchbar></ion-searchbar>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-toolbar>\n</ion-header>\n\n<ion-header>\n  <ion-toolbar>\n    <ion-title>Registrieren</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <form #signupForm=\"ngForm\" novalidate>\n    <ion-list lines=\"none\">\n      <ion-item>\n        <ion-label position=\"stacked\" color=\"primary\">Username</ion-label>\n        <ion-input [(ngModel)]=\"signup.username\" name=\"username\" type=\"text\" #username=\"ngModel\" required>\n        </ion-input>\n      </ion-item>\n      <ion-text color=\"danger\">\n        <p [hidden]=\"username.valid || submitted == false\" class=\"ion-padding-start\">\n          Username is required\n        </p>\n      </ion-text>\n\n      <ion-item>\n        <ion-label position=\"stacked\" color=\"primary\">Password</ion-label>\n        <ion-input [(ngModel)]=\"signup.password\" name=\"password\" type=\"password\" #password=\"ngModel\" required>\n        </ion-input>\n      </ion-item>\n      <ion-text color=\"danger\">\n        <p [hidden]=\"password.valid || submitted == false\" class=\"ion-padding-start\">\n          Password is required\n        </p>\n      </ion-text>\n    </ion-list>\n\n    <div class=\"ion-padding\">\n      <ion-button (click)=\"onSignup(signupForm)\" type=\"submit\" expand=\"block\">Create</ion-button>\n    </div>\n  </form>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>\n    <ion-grid>\n      <ion-row>\n        <ion-col>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"help\"></ion-icon>\n          </ion-button>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"settings\"></ion-icon>\n          </ion-button>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"wallet\"></ion-icon>\n          </ion-button>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-toolbar>\n</ion-footer>\n";
+    __webpack_exports__["default"] = "\n\n<ion-content>\n  <form #signupForm=\"ngForm\" novalidate>\n    <ion-list lines=\"none\">\n      <ion-item>\n        <ion-label position=\"stacked\" color=\"primary\">Username</ion-label>\n        <ion-input [(ngModel)]=\"signup.username\" name=\"username\" type=\"text\" #username=\"ngModel\" required>\n        </ion-input>\n      </ion-item>\n      <ion-text color=\"danger\">\n        <p [hidden]=\"username.valid || submitted == false\" class=\"ion-padding-start\">\n          Username is required\n        </p>\n      </ion-text>\n\n      <ion-item>\n        <ion-label position=\"stacked\" color=\"primary\">Password</ion-label>\n        <ion-input [(ngModel)]=\"signup.password\" name=\"password\" type=\"password\" #password=\"ngModel\" required>\n        </ion-input>\n      </ion-item>\n      <ion-text color=\"danger\">\n        <p [hidden]=\"password.valid || submitted == false\" class=\"ion-padding-start\">\n          Password is required\n        </p>\n      </ion-text>\n    </ion-list>\n\n    <div class=\"ion-padding\">\n      <ion-button (click)=\"onSignup(signupForm)\" type=\"submit\" expand=\"block\">Create</ion-button>\n    </div>\n  </form>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>\n    <ion-grid>\n      <ion-row>\n        <ion-col>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"help\"></ion-icon>\n          </ion-button>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"settings\"></ion-icon>\n          </ion-button>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"wallet\"></ion-icon>\n          </ion-button>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-toolbar>\n</ion-footer>\n";
+    /***/
+  },
+
+  /***/
+  "./src/app/providers/user-data.ts":
+  /*!****************************************!*\
+    !*** ./src/app/providers/user-data.ts ***!
+    \****************************************/
+
+  /*! exports provided: UserData */
+
+  /***/
+  function srcAppProvidersUserDataTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "UserData", function () {
+      return UserData;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _ionic_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @ionic/storage */
+    "./node_modules/@ionic/storage/fesm2015/ionic-storage.js");
+
+    var UserData = /*#__PURE__*/function () {
+      function UserData(storage) {
+        _classCallCheck(this, UserData);
+
+        this.storage = storage;
+        this.HAS_LOGGED_IN = 'hasLoggedIn';
+      }
+
+      _createClass(UserData, [{
+        key: "login",
+        value: function login(username) {
+          var _this = this;
+
+          return this.storage.set(this.HAS_LOGGED_IN, true).then(function () {
+            _this.setUsername(username);
+
+            return window.dispatchEvent(new CustomEvent('user:login'));
+          });
+        }
+      }, {
+        key: "signup",
+        value: function signup(username) {
+          var _this2 = this;
+
+          return this.storage.set(this.HAS_LOGGED_IN, true).then(function () {
+            _this2.setUsername(username);
+
+            return window.dispatchEvent(new CustomEvent('user:signup'));
+          });
+        }
+      }, {
+        key: "logout",
+        value: function logout() {
+          var _this3 = this;
+
+          return this.storage.remove(this.HAS_LOGGED_IN).then(function () {
+            return _this3.storage.remove('username');
+          }).then(function () {
+            window.dispatchEvent(new CustomEvent('user:logout'));
+          });
+        }
+      }, {
+        key: "setUsername",
+        value: function setUsername(username) {
+          return this.storage.set('username', username);
+        }
+      }, {
+        key: "getUsername",
+        value: function getUsername() {
+          return this.storage.get('username').then(function (value) {
+            return value;
+          });
+        }
+      }, {
+        key: "isLoggedIn",
+        value: function isLoggedIn() {
+          return this.storage.get(this.HAS_LOGGED_IN).then(function (value) {
+            return value === true;
+          });
+        }
+      }]);
+
+      return UserData;
+    }();
+
+    UserData.ctorParameters = function () {
+      return [{
+        type: _ionic_storage__WEBPACK_IMPORTED_MODULE_2__["Storage"]
+      }];
+    };
+
+    UserData = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_storage__WEBPACK_IMPORTED_MODULE_2__["Storage"]])], UserData);
     /***/
   },
 
@@ -63,11 +184,15 @@
     /*! ./signup.page */
     "./src/app/signup/signup.page.ts");
 
-    const routes = [{
+    var routes = [{
       path: '',
       component: _signup_page__WEBPACK_IMPORTED_MODULE_3__["SignupPage"]
     }];
-    let SignupPageRoutingModule = class SignupPageRoutingModule {};
+
+    var SignupPageRoutingModule = function SignupPageRoutingModule() {
+      _classCallCheck(this, SignupPageRoutingModule);
+    };
+
     SignupPageRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
@@ -137,7 +262,10 @@
     /*! ./signup.page */
     "./src/app/signup/signup.page.ts");
 
-    let SignupPageModule = class SignupPageModule {};
+    var SignupPageModule = function SignupPageModule() {
+      _classCallCheck(this, SignupPageModule);
+    };
+
     SignupPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _signup_routing_module__WEBPACK_IMPORTED_MODULE_5__["SignupPageRoutingModule"]],
       declarations: [_signup_page__WEBPACK_IMPORTED_MODULE_6__["SignupPage"]]
@@ -209,8 +337,10 @@
     /*! ../providers/user-data */
     "./src/app/providers/user-data.ts");
 
-    let SignupPage = class SignupPage {
-      constructor(router, userData) {
+    var SignupPage = /*#__PURE__*/function () {
+      function SignupPage(router, userData) {
+        _classCallCheck(this, SignupPage);
+
         this.router = router;
         this.userData = userData;
         this.signup = {
@@ -220,31 +350,37 @@
         this.submitted = false;
       }
 
-      onSignup(form) {
-        this.submitted = true;
+      _createClass(SignupPage, [{
+        key: "onSignup",
+        value: function onSignup(form) {
+          this.submitted = true;
 
-        if (form.valid) {
-          this.userData.signup(this.signup.username);
-          this.router.navigateByUrl('/home');
+          if (form.valid) {
+            this.userData.signup(this.signup.username);
+            this.router.navigateByUrl('/home');
+          }
         }
-      }
+      }]);
 
+      return SignupPage;
+    }();
+
+    SignupPage.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _providers_user_data__WEBPACK_IMPORTED_MODULE_3__["UserData"]
+      }];
     };
-
-    SignupPage.ctorParameters = () => [{
-      type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-    }, {
-      type: _providers_user_data__WEBPACK_IMPORTED_MODULE_3__["UserData"]
-    }];
 
     SignupPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-signup',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! raw-loader!./signup.page.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/signup/signup.page.html")).default,
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/signup/signup.page.html"))["default"],
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./signup.page.scss */
-      "./src/app/signup/signup.page.scss")).default]
+      "./src/app/signup/signup.page.scss"))["default"]]
     }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _providers_user_data__WEBPACK_IMPORTED_MODULE_3__["UserData"]])], SignupPage);
     /***/
   }

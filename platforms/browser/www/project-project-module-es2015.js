@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-grid>\n      <ion-row>\n        <ion-col>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"globe\"></ion-icon>\n          </ion-button>\n          <ion-button href=\"/project-menu\" color=\"dark\">\n            <ion-icon name=\"book\"></ion-icon>\n          </ion-button>\n        </ion-col>\n        <ion-col>\n          <ion-button color=\"dark\" href=\"home\">\n            <img src=\"/assets/BusinessELogoByNamelix.png\"/>\n          </ion-button>\n        </ion-col>\n        <ion-col>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"log-in\"></ion-icon>\n          </ion-button>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"person\"></ion-icon>\n          </ion-button>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col>\n          <ion-searchbar></ion-searchbar>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-toolbar>\n</ion-header>\n<ion-header padding>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title> Projektübersicht</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n<ion-list>\n    <ion-item-sliding>\n\n      <ion-item>\n        <ion-label>Item</ion-label>\n      </ion-item>\n      <ion-item>\n        <ion-label>Item</ion-label>\n      </ion-item>\n      <ion-item>\n        <ion-label>Item</ion-label>\n      </ion-item>\n      <ion-item>\n        <ion-label>Item</ion-label>\n      </ion-item>\n\n      <ion-item-options side=\"end\">\n        <ion-item-option (click)=\"unread(item)\">Unread</ion-item-option>\n      </ion-item-options>\n    </ion-item-sliding>\n  </ion-list>\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>\n    <ion-grid>\n      <ion-row>\n        <ion-col>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"help\"></ion-icon>\n          </ion-button>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"settings\"></ion-icon>\n          </ion-button>\n          <ion-button href=\"#\" color=\"dark\">\n            <ion-icon name=\"wallet\"></ion-icon>\n          </ion-button>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-toolbar>\n</ion-footer>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <ion-header>\n  <ion-item class=\"header-item\">\n    <ion-button href=\"home\" color=\"dark\">\n      <ion-icon name=\"globe\"></ion-icon>\n    </ion-button>\n\n    <ion-button href=\"/project-menu\" color=\"dark\">\n      <ion-icon name=\"book\"></ion-icon>\n    </ion-button>\n\n    <ion-searchbar color=\"light\" class=\"searchbar-input-container\" mode=\"ios\" style=\"color: black;\"></ion-searchbar>\n    <ion-button color=\"secondary\" style=\"height: 55%;\" href=\"login.page.html\">Login</ion-button>\n\n    <ion-button href=\"#\" color=\"dark\">\n      <ion-icon name=\"person\"></ion-icon>\n    </ion-button>\n  </ion-item>\n</ion-header> -->\n\n<ion-header>\n  <ion-toolbar>\n    <ion-title>Header</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-grid fixed>\n    <ion-row>\n      <ion-col>\n        {{id}}\n      </ion-col>\n      <ion-col *ngIf=\"this.account_id != null\" >\n        Deine ID: {{this.account_id}}\n      </ion-col>\n      <ion-col *ngIf=\"this.isPartner == true\" >\n        Sie sind Partner\n      </ion-col>\n      <ion-col *ngIf=\"this.isProvider == true\" >\n        Sie sind Provider\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"block\" fill=\"clear\" shape=\"round\">\n          Click me\n        </ion-button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n\n</ion-content>");
 
 /***/ }),
 
@@ -117,20 +117,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectPage", function() { return ProjectPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm2015/ionic-storage.js");
+
+
 
 
 let ProjectPage = class ProjectPage {
-    constructor() { }
+    constructor(activatedRoute, storage) {
+        this.activatedRoute = activatedRoute;
+        this.storage = storage;
+        this.isPartner = false;
+        this.isProvider = false;
+        this.json = [
+            {
+                "img_workplace": "./assets/project/1/workplace.png"
+            }
+        ];
+        this.activatedRoute.params.subscribe((params) => {
+            this.id = params["id"];
+        });
+    }
     ngOnInit() {
     }
+    ionViewWillEnter() {
+        // this.storage.ready().then(() => {
+        // });
+        this.storage.get('id').then((id) => {
+            this.account_id = id;
+        });
+        this.storage.get('isPartner').then((state) => {
+            this.isPartner = state;
+        });
+        this.storage.get('isProvider').then((state) => {
+            this.isProvider = state;
+        });
+    }
 };
+ProjectPage.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_3__["Storage"] }
+];
 ProjectPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-project',
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./project.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/project/project.page.html")).default,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./project.page.scss */ "./src/app/project/project.page.scss")).default]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _ionic_storage__WEBPACK_IMPORTED_MODULE_3__["Storage"]])
 ], ProjectPage);
 
 
