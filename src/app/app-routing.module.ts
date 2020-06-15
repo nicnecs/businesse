@@ -83,6 +83,16 @@ const routes: Routes = [
     path: 'maps',
     loadChildren: () => import('./maps/maps.module').then( m => m.MapsPageModule)
   },
+  {
+    path: 'rating-users/:id',
+    loadChildren: () => import('./rating-users/rating-users.module').then( m => m.RatingPageModule)
+  },
+  {
+    path: 'rating-provider/:id',
+    loadChildren: () => import('./rating-provider/rating-provider.module').then( m => m.RatingProviderPageModule)
+  },
+
+
 
 
 

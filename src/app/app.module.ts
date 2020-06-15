@@ -23,10 +23,13 @@ import { File } from '@ionic-native/file';
 import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
+// Import ionic-rating module
+import { StarRatingModule } from 'ionic4-star-rating';
+
 @NgModule({
   declarations: [AppComponent, AutocompletePage],
   entryComponents: [AutocompletePage],
-  imports: [IonicStorageModule.forRoot() ,BrowserModule, HttpModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot(),
+  imports: [IonicStorageModule.forRoot() ,BrowserModule, HttpModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot(), StarRatingModule,
   ],
   providers: [
     

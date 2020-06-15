@@ -18,7 +18,10 @@
               <ion-col size="3" class="ion-no-padding">
                 <ion-text *ngIf="data.state == 'orange'; else end" color="success">Deadline: {{ data.deadline }}</ion-text>
                 <ion-card-subtitle>Reward: {{ data.reward }}$</ion-card-subtitle>
-                <ng-template #end><ion-card-subtitle #ende color="danger">Bewerbungszeit ist schon zu Ende</ion-card-subtitle></ng-template>
+                <ng-template #end>
+                  <ion-card-subtitle #ende color="danger">Bewerbungszeit ist schon zu Ende</ion-card-subtitle>
+                  <ion-button color="primary" class="ion-margin-top" [routerLink]="['/rating-users', data.id]" routerDirection="forward">Bewerten</ion-button>
+                </ng-template>
               </ion-col>
             </ion-row>
           </ion-card-header>
