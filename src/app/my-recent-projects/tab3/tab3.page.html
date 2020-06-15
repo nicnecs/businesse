@@ -21,7 +21,7 @@
             <ion-card-content fullscreen>
               {{project.description}}
               <ion-button color="primary" class="ion-margin-top">Info</ion-button>
-              <ion-button color="success" class="ion-margin-top">Bewertung</ion-button>
+              <ion-button color="primary" class="ion-margin-top" [routerLink]="['/rating-provider', project.id]" routerDirection="forward">Bewerten</ion-button>
             </ion-card-content>
           </ion-card>
         </ion-col>
